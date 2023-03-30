@@ -13,8 +13,8 @@
     "static/js/10.2fc70f54.chunk.js": "/BinPack/static/js/10.2fc70f54.chunk.js",
     "static/js/11.02de35d3.chunk.js": "/BinPack/static/js/11.02de35d3.chunk.js",
     "static/js/12.bb67c8af.chunk.js": "/BinPack/static/js/12.bb67c8af.chunk.js",
-    "main.js": "/BinPack/static/js/main.08996226.chunk.js",
-    "runtime-main.js": "/BinPack/static/js/runtime-main.02229913.js",
+    "main.js": "/BinPack/static/js/main.5ec00a4d.chunk.js",
+    "runtime-main.js": "/BinPack/static/js/runtime-main.ecceb812.js",
     "static/css/15.af774a2d.chunk.css": "/BinPack/static/css/15.af774a2d.chunk.css",
     "static/js/15.12bd7bd5.chunk.js": "/BinPack/static/js/15.12bd7bd5.chunk.js",
     "static/js/16.f9c47f6e.chunk.js": "/BinPack/static/js/16.f9c47f6e.chunk.js",
@@ -91,14 +91,14 @@
     "static/js/87.4cdeb455.chunk.js": "/BinPack/static/js/87.4cdeb455.chunk.js",
     "static/js/88.526d9a53.chunk.js": "/BinPack/static/js/88.526d9a53.chunk.js",
     "static/js/89.646f32e1.chunk.js": "/BinPack/static/js/89.646f32e1.chunk.js",
-    "static/js/90.84b09fb9.chunk.js": "/BinPack/static/js/90.84b09fb9.chunk.js",
+    "static/js/90.bb2a47be.chunk.js": "/BinPack/static/js/90.bb2a47be.chunk.js",
     "index.html": "/BinPack/index.html",
     "static/js/15.12bd7bd5.chunk.js.LICENSE.txt": "/BinPack/static/js/15.12bd7bd5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.02229913.js",
+    "static/js/runtime-main.ecceb812.js",
     "static/css/15.af774a2d.chunk.css",
     "static/js/15.12bd7bd5.chunk.js",
-    "static/js/main.08996226.chunk.js"
+    "static/js/main.5ec00a4d.chunk.js"
   ]
 }
