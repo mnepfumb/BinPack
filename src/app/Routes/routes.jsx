@@ -17,10 +17,10 @@ const routes = [
     children: [...dashboardRoutes, ...chartsRoute, ...materialRoutes],
   },
   ...sessionRoutes,
-  { path: '/', element: <Navigate to="/netcare/dashboard/admin" /> },
-  { path: '/', element: <Navigate to="/netcare/dashboard/hospital" /> },
-  { path: '/', element: <Navigate to="/netcare/dashboard/service_provider" /> },
-  { path: '/', element: <Navigate to="/netcare/dashboard/driver" /> },
+  { path: '/', element: <Navigate to="/netcare/admin/dashboard" /> },
+  { path: '/', element: <Navigate to="/netcare/hospital/dashboard" /> },
+  { path: '/', element: <Navigate to="/netcare/service_provider/dashboard" /> },
+  { path: '/', element: <Navigate to="/netcare/driver/dashboard" /> },
   { path: '*', element: <NotFound to="session/404" /> },
 ];
 
