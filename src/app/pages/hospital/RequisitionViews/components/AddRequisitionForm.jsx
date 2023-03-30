@@ -73,7 +73,12 @@ const AddRequisitionForm = () => {
     }
 
     (async () => {
-      const response2 = await axios.get('/company'); 
+      const response2 = await axios.get('/company', {
+        headers: { 
+					'Content-Type': 'application/json',
+					// Authorization: `Bearer ${accessToken}` 
+				},
+      }); 
       const { companies } = response2.data;
       if (active) {
         setCompaniesOptions(companies);
@@ -91,7 +96,12 @@ const AddRequisitionForm = () => {
       return undefined;
     }
     (async () => {
-      const response = await axios.get('/hospital');
+      const response = await axios.get('/hospital', {
+        headers: { 
+					'Content-Type': 'application/json',
+					// Authorization: `Bearer ${accessToken}` 
+				},
+      });
       const { hospitals } = response.data;
       if (active) {
         setHospitalOptions(hospitals);

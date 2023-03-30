@@ -44,8 +44,16 @@ const AddUserForm = () => {
     }
 
     (async () => {
-      const response = await axios.get('/hospital');
-      const response2 = await axios.get('/company');
+      const response = await axios.get('/hospital', {
+        headers: { 
+          'Content-Type': 'application/json', 
+      },
+      });
+      const response2 = await axios.get('/company', {
+        headers: { 
+          'Content-Type': 'application/json', 
+      },
+      });
 
       const { hospitals } = response.data;
       const { companies } = response2.data;

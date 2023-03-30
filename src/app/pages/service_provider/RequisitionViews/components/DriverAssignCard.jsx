@@ -69,7 +69,12 @@ const DriverAssignCard = ({ requisition }) => {
 			try {
 				console.log('requisition.serviceProviderId: ' + requisition.serviceProviderId);
 				var url = '/users/userfield?company_id=' + requisition.serviceProviderId
-				const response = await axios.get(url);
+				const response = await axios.get(url, {
+					headers: { 
+						'Content-Type': 'application/json',
+						// Authorization: `Bearer ${accessToken}` 
+					},
+				});
 				const { status, users } = response.data;
 				if ( status === 'success' ) {
 					users.forEach((user) => {

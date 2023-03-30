@@ -120,6 +120,9 @@ export const AuthProvider = ({ children }) => {
         const response = await axios.post('/users', {
             email,
             password,
+            headers: { 
+                'Content-Type': 'application/json', 
+            },
         })
 
         const { accessToken, user } = response.data

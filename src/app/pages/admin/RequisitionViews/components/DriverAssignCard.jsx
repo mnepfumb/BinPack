@@ -70,7 +70,11 @@ const DriverAssignCard = ({ requisition }) => {
 
 		(async () => {
 
-			const response = await axios.get('/users');
+			const response = await axios.get('/users', {
+				headers: { 
+					'Content-Type': 'application/json', 
+				},
+			});
 			const { users } = response.data;
 			users.forEach((user) => {
 				console.log('user.role: ' + user.role);

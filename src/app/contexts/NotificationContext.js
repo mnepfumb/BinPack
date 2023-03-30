@@ -42,6 +42,9 @@ export const NotificationProvider = ({ settings, children }) => {
         try {
             const res = await axios.post('/api/notification/delete', {
                 id: notificationID,
+                headers: { 
+                    'Content-Type': 'application/json', 
+                },
             })
             dispatch({
                 type: 'DELETE_NOTIFICATION',

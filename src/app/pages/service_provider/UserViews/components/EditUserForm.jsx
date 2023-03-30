@@ -42,7 +42,12 @@ const EditUserForm = () => {
     }
 
     (async () => {
-      const response = await axios.get('/hospital');
+      const response = await axios.get('/hospital', {
+        headers: { 
+					'Content-Type': 'application/json',
+					// Authorization: `Bearer ${accessToken}` 
+				},
+      });
       const { hospitals } = response.data;
 
       console.log(hospitals);
