@@ -99,7 +99,7 @@ const JwtLogin = () => {
         <Grid container>
           <Grid item sm={6} xs={12}>
             <JustifyBox p={4} height="100%" sx={{ minWidth: 320 }}>
-              <img src="/assets/images/logo.png" width="100%" alt="" />
+              <img src="/BinPack/assets/images/logo.png" width="100%" alt="" />
             </JustifyBox>
           </Grid>
 
@@ -189,7 +189,7 @@ const JwtLogin = () => {
                   <Paragraph>
                     This Application is powered by BinPack
                   </Paragraph>
-                  <img src="/assets/images/logo.png" width="54px" height="44px" alt="netcare" />
+                  <img src="/BinPack/assets/images/logo.png" width="54px" height="44px" alt="netcare" />
               </FlexBox>
             </ContentBox>
           </Grid>
