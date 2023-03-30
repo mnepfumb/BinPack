@@ -1,5 +1,5 @@
-import { Box, Card, Grid, Icon, IconButton, styled, Tooltip, Divider } from '@mui/material';
-import { Small, H2, H3, H6 } from 'app/components/Typography';
+import { Box, Card, Grid, Icon, styled, Divider } from '@mui/material';
+import { H6 } from 'app/components/Typography';
 import { Link } from 'react-router-dom';
 import ProgressBar from 'app/pages/ProgressBar';
 import axios from 'app/api/axios';

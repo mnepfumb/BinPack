@@ -43,30 +43,31 @@ const ViewManifest = ({ requisition }) => {
 	console.log("ViewManifest" + requisition.requision_id);
 
 
-	const fetchHospitalData = async () => {
-		try {
-		  const accessToken = window.localStorage.getItem('accessToken');
-		  console.log('accessToken: ' + accessToken);
-		  const url = '/manifest/requisionId?requisition_id='+ requisition.requision_id;
-		  console.log('url: ' + url);
 
-		  const response = await axios.get(url, {
-			headers: {
-			  'Content-Type': 'application/json',
-			  Authorization: `Bearer ${accessToken}`,
-			},
-		  });
-		  const { status, manifests } = response.data;
-		  if (status === 'success') {
-			setManifest(manifests[0]);
-		  }
-		} catch (error) {
-		  console.log('error: ' + error);
-		}
-	};
 	useEffect(() => {
+		const fetchHospitalData = async () => {
+			try {
+			const accessToken = window.localStorage.getItem('accessToken');
+			console.log('accessToken: ' + accessToken);
+			const url = '/manifest/requisionId?requisition_id='+ requisition.requision_id;
+			console.log('url: ' + url);
+
+			const response = await axios.get(url, {
+				headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${accessToken}`,
+				},
+			});
+			const { status, manifests } = response.data;
+			if (status === 'success') {
+				setManifest(manifests[0]);
+			}
+			} catch (error) {
+			console.log('error: ' + error);
+			}
+		};
 		fetchHospitalData();
-	}, []);
+	}, [requisition.requision_id]);
 
     const onClick = () => navigate(-1);
 

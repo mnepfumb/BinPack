@@ -54,50 +54,50 @@ const UserTable = () => {
 
 	const navigate = useNavigate();
 
-	const fetchHospitalData = async () => {
-		try {
-			const accessToken = window.localStorage.getItem('accessToken');
-			console.log('accessToken: ' + accessToken);
-			console.log('user.id: ' + user.id);
-			var url = `/users/${user.id}`
-			const response = await axios.get( url , {
-				headers: {
-				'Content-Type': 'application/json',
-				Authorization: `Bearer ${accessToken}`,
-				},
-			});
-			const { status, users } = response.data;
-			console.log('users: ' + users);
-			if (status === 'success') {
-				var company_id = users.company_id;
-				console.log('company_id: ' + company_id);
-				try {
-					var url =  '/users/userfield?company_id='+company_id
-					const response = await axios.get( url , {
-						headers: {
-						'Content-Type': 'application/json',
-						Authorization: `Bearer ${accessToken}`,
-						},
-						// withCredentials: true
-					});
-					const { status, users } = response.data;
-					console.log('users: ' + users);
-					if (status === 'success') {
-						console.log(`user.is_active: ${users[0].is_active}`);
-						setUsers(users);
-					}
-				} catch (error) {
-				console.log('error: ' + error);
-				}
-			}
-		} catch (error) {
-		console.log('error: ' + error);
-		}
-	};
-
 	useEffect(() => {
+
+		const fetchHospitalData = async () => {
+			try {
+				const accessToken = window.localStorage.getItem('accessToken');
+				console.log('accessToken: ' + accessToken);
+				console.log('user.id: ' + user.id);
+				var url = `/users/${user.id}`
+				const response = await axios.get( url , {
+					headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${accessToken}`,
+					},
+				});
+				const { status, users } = response.data;
+				console.log('users: ' + users);
+				if (status === 'success') {
+					var company_id = users.company_id;
+					console.log('company_id: ' + company_id);
+					try {
+						var users_url =  '/users/userfield?company_id='+company_id
+						const response = await axios.get( users_url , {
+							headers: {
+							'Content-Type': 'application/json',
+							Authorization: `Bearer ${accessToken}`,
+							},
+							// withCredentials: true
+						});
+						const { status, users } = response.data;
+						console.log('users: ' + users);
+						if (status === 'success') {
+							console.log(`user.is_active: ${users[0].is_active}`);
+							setUsers(users);
+						}
+					} catch (error) {
+					console.log('error: ' + error);
+					}
+				}
+			} catch (error) {
+			console.log('error: ' + error);
+			}
+		};
 		fetchHospitalData();
-	}, []);
+	}, [user.id]);
 
 	const onClick = () => navigate('/netcare/hospital/user-add-form');
 	const renderTest = (check, user) => {

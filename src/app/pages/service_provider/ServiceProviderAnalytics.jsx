@@ -1,12 +1,10 @@
 import { Card, Grid, styled, useTheme } from '@mui/material';
 import { Fragment } from 'react';
-import Campaigns from '../dashboard/shared/Campaigns';
 import DoughnutChart from '../dashboard/shared/Doughnut';
 import RowCards from '../dashboard/shared/RowCards';
 import StatCards from '../dashboard/shared/StatCards';
 import StatCards2 from '../dashboard/shared/StatCards2';
 import TopSellingTable from './adminComponents/TopSellingTable';
-import UpgradeCard from '../dashboard/shared/UpgradeCard';
 import SimpleCard from 'app/components/SimpleCard';
 import ComparisonChart from 'app/pages/service_provider/adminComponents/ComparisonChart';
 import ComparisonChart2 from 'app/pages/service_provider/adminComponents/ComparisonChart2';

@@ -1,5 +1,5 @@
-import { Box, Card, Grid, Icon, IconButton, styled, Tooltip, Divider } from '@mui/material';
-import { Small, H2, H3, H6 } from 'app/components/Typography';
+import { Box, Card, Grid, Icon, styled, Divider } from '@mui/material';
+import { H6 } from 'app/components/Typography';
 import { Link } from 'react-router-dom';
 import ProgressBar from 'app/pages/ProgressBar';
 import axios from 'app/api/axios';
@@ -43,47 +43,47 @@ const AddRequisitionForm = () => {
 	const [requisitions, setRequisitions] = useState([]);
 	let { user } = useAuth();
 
-	const fetchRequisitionData = async () => {
-		const accessToken = window.localStorage.getItem('accessToken');
-		try {
-			console.log('accessToken: ' + accessToken);
-			console.log('user.id: ' + user.id);
-			var url =  `/users/${user.id}`
-			const response = await axios.get( url , {
-				headers: {
-					'Content-Type': 'application/json',
-					Authorization: `Bearer ${accessToken}`,
-				},
-			});
-			const { status, users } = response.data;
-			console.log('users: ' + users.company_id);
-			if (status === "success") {
-				try {
-					var url =  '/requisition/hospital?serviceProviderId='+users.company_id
-					const response = await axios.get( url , {
-						headers: {
-							'Content-Type': 'application/json',
-							Authorization: `Bearer ${accessToken}`,
-						},
-					});
-					const { status, requisitions } = response.data;
-					console.log('requisitions: ' + requisitions);
-					if (status === "success") {
-						setRequisitions(requisitions);
-					}
-				} catch (error) {
-					console.log('error: ' + error);
-				}
-			}
-		} catch (error) {
-			console.log('error: ' + error);
-		}
-	};
-
 	useEffect(() => {
+
+		const fetchRequisitionData = async () => {
+			const accessToken = window.localStorage.getItem('accessToken');
+			try {
+				console.log('accessToken: ' + accessToken);
+				console.log('user.id: ' + user.id);
+				var url =  `/users/${user.id}`
+				const response = await axios.get( url , {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${accessToken}`,
+					},
+				});
+				const { status, users } = response.data;
+				console.log('users: ' + users.company_id);
+				if (status === "success") {
+					try {
+						var requisition_url =  '/requisition/hospital?serviceProviderId='+users.company_id
+						const response = await axios.get( requisition_url , {
+							headers: {
+								'Content-Type': 'application/json',
+								Authorization: `Bearer ${accessToken}`,
+							},
+						});
+						const { status, requisitions } = response.data;
+						console.log('requisitions: ' + requisitions);
+						if (status === "success") {
+							setRequisitions(requisitions);
+						}
+					} catch (error) {
+						console.log('error: ' + error);
+					}
+				}
+			} catch (error) {
+				console.log('error: ' + error);
+			}
+		};
 		fetchRequisitionData();
 		
-	}, []);
+	}, [user.id]);
 
 	const renderAuthIcon = (created_date) => {
 		var check = true;

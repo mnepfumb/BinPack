@@ -30,6 +30,7 @@ const EditUserForm = () => {
   const [formState, setFormState] = useState({ date: new Date() });
   const [open, setOpen] = useState(false);
   const [hospitalOptions, setHospitalOptions] = useState([location.state.user.company]);
+  // eslint-disable-next-line no-unused-vars
   const [companiesOptions, setCompaniesOptions] = useState([]);
   const [hospitalDropdownValue, setHospitalDropdownValue] = useState(null);
   const [companiesDropdownValue, setCompaniesDropdownValue] = useState(null);  const loading = open && hospitalOptions.length === 0;

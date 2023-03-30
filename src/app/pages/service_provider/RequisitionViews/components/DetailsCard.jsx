@@ -1,6 +1,6 @@
-import { Box, Button, Card, styled, Grid, Divider, buttonClasses } from '@mui/material';
+import { Box, Card, styled, Grid, Divider } from '@mui/material';
 import { convertHexToRGB } from 'app/utils/utils';
-import { Small, H2, H3, H4 } from 'app/components/Typography';
+import { H3, H4 } from 'app/components/Typography';
 import axios from 'app/api/axios';
 
 const CardRoot = styled(Card)(({ theme }) => ({

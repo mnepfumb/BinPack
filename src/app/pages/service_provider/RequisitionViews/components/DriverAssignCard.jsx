@@ -9,16 +9,16 @@ import {
 	Card,
 	Divider,
 } from '@mui/material';
-import { Span, small } from 'app/components/Typography';
+import { Span } from 'app/components/Typography';
 import { useEffect, useState, Fragment } from 'react';
 import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
 import axios from 'app/api/axios';
 
 const AutoComplete = styled(Autocomplete)(() => ({}));
 
-function sleep(delay = 0) {
-return new Promise((resolve) => setTimeout(resolve, delay));
-}
+// function sleep(delay = 0) {
+// return new Promise((resolve) => setTimeout(resolve, delay));
+// }
 const TextField = styled(TextValidator)(() => ({
 width: '100%',
 marginBottom: '16px',
@@ -48,35 +48,17 @@ const accessToken = window.localStorage.getItem('accessToken');
 
 const DriverAssignCard = ({ requisition }) => {
 		const [open, setOpen] = useState(false);
+		// eslint-disable-next-line no-unused-vars
 		const [options, setOptions] = useState([]);
 		const loading = open && options.length === 0;
 		const [hospitalOptions, setHospitalOptions] = useState([]);
 		const [manifest, setManifests] = useState(null);
 		const [hospitalDropdownValue, setHospitalDropdownValue] = useState(null);
 		const [manifeststatus, setManifeststatus] = useState(null);
-	
-	const fetchManifestlData = async () => {
-		try {
-			var manifest_url = '/manifest/requisionId?requisition_id=' + requisition.requision_id;
-			const get_response = await axios.get( manifest_url , {
-				headers: {
-					'Content-Type': 'application/json',
-					Authorization: `Bearer ${accessToken}`,
-				},
-			});
-			const { status, manifests} = get_response.data;
 
-			if (status === 'success') {
-				setManifests(manifests[0])
-			}
-			console.log('setManifests: ' + manifest._id);
-		} catch (error) {
-		console.log('error: ' + error);
-		}
-	};
 
 	useEffect(() => {
-		let active = true;
+		// var active = true;
 		let userlist = [];
 
 		if (!loading) {
@@ -109,16 +91,35 @@ const DriverAssignCard = ({ requisition }) => {
 		})();
 
 		return () => {
-		active = false;
+			// active = false;
 		};
-	}, [loading, hospitalOptions]);
+	}, [loading, hospitalOptions, requisition.serviceProviderId]);
 
-	useEffect(() => {
+	useEffect(() => {	
+		const fetchManifestlData = async () => {
+			try {
+				var manifest_url = '/manifest/requisionId?requisition_id=' + requisition.requision_id;
+				const get_response = await axios.get( manifest_url , {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${accessToken}`,
+					},
+				});
+				const { status, manifests} = get_response.data;
+	
+				if (status === 'success') {
+					setManifests(manifests[0])
+				}
+				console.log('setManifests: ' + manifest._id);
+			} catch (error) {
+			console.log('error: ' + error);
+			}
+		};
 		fetchManifestlData() 
 		if (!open) {
 		setHospitalOptions([]);
 		}
-	}, [open]);
+	}, [manifest._id, open, requisition.requision_id]);
 
 	const handleHospitalDropdownChange = (_, newValue) => {
 		console.log('newValue');

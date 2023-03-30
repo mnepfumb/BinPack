@@ -4,11 +4,10 @@ import {
 	styled,
 	Box,
 } from "@mui/material";
-import { Span, H1, H2, H3, H5, Small } from "app/components/Typography";
+import { Span } from "app/components/Typography";
 import { Fragment } from 'react';
 import SimpleCard from 'app/components/SimpleCard';
 import DetailsCard from './components/DetailsCard';
-import ViewManifest from './components/ViewManifest';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 

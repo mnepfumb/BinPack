@@ -1,5 +1,5 @@
-import { Box, Card, Grid, Icon, IconButton, styled, Tooltip, Divider } from '@mui/material';
-import { Small, H2, H3, H6 } from 'app/components/Typography';
+import { Box, Card, Grid, Icon, styled, Divider } from '@mui/material';
+import { H6 } from 'app/components/Typography';
 import { Link } from 'react-router-dom';
 import ProgressBar from 'app/pages/ProgressBar';
 import axios from 'app/api/axios';
@@ -43,30 +43,30 @@ const AddRequisitionForm = () => {
 	const [requisitions, setRequisitions] = useState([]);
 	let { user } = useAuth();
 
-	const fetchRequisitionData = async () => {
-		try {
-			const accessToken = window.localStorage.getItem('accessToken');
-			console.log('user.email: ' + user.id);
-			var url =  '/requisition/hospital?driver_id='+user.id
-			const response = await axios.get( url , {
-				headers: {
-					'Content-Type': 'application/json',
-					Authorization: `Bearer ${accessToken}`,
-				},
-			});
-			const { status, requisitions } = response.data;
-			console.log('requisitions: ' + requisitions);
-			if (status === "success") {
-				setRequisitions(requisitions);
-			}
-		} catch (error) {
-			console.log('error: ' + error);
-		}
-	};
-
 	useEffect(() => {
+
+		const fetchRequisitionData = async () => {
+			try {
+				const accessToken = window.localStorage.getItem('accessToken');
+				console.log('user.email: ' + user.id);
+				var url =  '/requisition/hospital?driver_id='+user.id
+				const response = await axios.get( url , {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${accessToken}`,
+					},
+				});
+				const { status, requisitions } = response.data;
+				console.log('requisitions: ' + requisitions);
+				if (status === "success") {
+					setRequisitions(requisitions);
+				}
+			} catch (error) {
+				console.log('error: ' + error);
+			}
+		};
 		fetchRequisitionData();
-	}, []);
+	}, [user.id]);
 
 	const renderAuthIcon = (created_date) => {
 		var check = true;

@@ -1,5 +1,5 @@
-import { Box, Card, Grid, Icon, IconButton, styled, Tooltip, Divider } from '@mui/material';
-import { Small, H2, H3, H6 } from 'app/components/Typography';
+import { Box, Card, Grid, Icon, styled, Divider } from '@mui/material';
+import { H6 } from 'app/components/Typography';
 import { Link } from 'react-router-dom';
 import ProgressBar from 'app/pages/ProgressBar';
 import axios from 'app/api/axios';
@@ -42,42 +42,42 @@ const Title = styled('span')(() => ({
 const CompletedRequisitionsCards = () => {
 	const [requisitions, setRequisitions] = useState([]);
 	let { user } = useAuth();
-	let requisitionlist = [];
-
-	const fetchRequisitionData = async () => {
-		try {
-			const accessToken = window.localStorage.getItem('accessToken');
-			console.log('user.email: ' + user.id);
-			var url =  '/requisition/hospital?driver_id='+user.id
-			const response = await axios.get( url , {
-				headers: {
-					'Content-Type': 'application/json',
-					Authorization: `Bearer ${accessToken}`,
-				},
-			});
-			const { status, requisitions } = response.data;
-			console.log('requisitions: ' + requisitions);
-			if (status === "success") {
-				requisitions.forEach((requisition) => {
-					console.log('user.role: ' + requisition.status);
-					if (requisition.status === 'Waste Disposed') {
-						console.log('user: ' + requisition.name);
-						requisitionlist.push({
-							requisition
-						})
-					}
-					
-				});
-				setRequisitions(requisitionlist);
-			}
-		} catch (error) {
-			console.log('error: ' + error);
-		}
-	};
 
 	useEffect(() => {
+		let requisitionlist = [];
+	
+		const fetchRequisitionData = async () => {
+			try {
+				const accessToken = window.localStorage.getItem('accessToken');
+				console.log('user.email: ' + user.id);
+				var url =  '/requisition/hospital?driver_id='+user.id
+				const response = await axios.get( url , {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${accessToken}`,
+					},
+				});
+				const { status, requisitions } = response.data;
+				console.log('requisitions: ' + requisitions);
+				if (status === "success") {
+					requisitions.forEach((requisition) => {
+						console.log('user.role: ' + requisition.status);
+						if (requisition.status === 'Waste Disposed') {
+							console.log('user: ' + requisition.name);
+							requisitionlist.push({
+								requisition
+							})
+						}
+						
+					});
+					setRequisitions(requisitionlist);
+				}
+			} catch (error) {
+				console.log('error: ' + error);
+			}
+		};
 		fetchRequisitionData();
-	}, []);
+	}, [user.id]);
 
 	const renderAuthIcon = (created_date) => {
 		var check = true;

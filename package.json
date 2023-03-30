@@ -2,7 +2,7 @@
   "name": "BinPack",
   "version": "3.0.0",
   "private": true,
-  "homepage": "https://mnepfumb.github.io/BinPack",
+  "homepage": "http://mnepfumb.github.io/BinPack",
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.19.2",
     "@emotion/react": "^11.5.0",
@@ -40,8 +40,9 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "deploy": "gh-pages -d build",
     "start": "react-scripts --openssl-legacy-provider start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "GENERATE_SOURCEMAP=false react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

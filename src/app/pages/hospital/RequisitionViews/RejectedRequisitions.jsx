@@ -1,4 +1,4 @@
-import { styled,  Box, Icon, Fab } from '@mui/material';
+import { styled,  Box} from '@mui/material';
 import { Fragment } from 'react';
 import RejectedRequisitionsCards from './components/Rejected_Requisitions/RejectedRequisitionsCards';
 import SimpleCard from 'app/components/SimpleCard';

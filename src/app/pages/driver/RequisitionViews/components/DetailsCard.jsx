@@ -1,6 +1,6 @@
 import { Box, Button, Card, styled, Grid, Divider } from '@mui/material';
 import { convertHexToRGB } from 'app/utils/utils';
-import { Small, H2, H3, H4 } from 'app/components/Typography';
+import { H3, H4 } from 'app/components/Typography';
 import axios from 'app/api/axios';
 import useAuth from 'app/hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
@@ -74,7 +74,7 @@ const DetailsCard = ({ requisition }) => {
 					Authorization: `Bearer ${accessToken}`,
 				},
 			});
-			const { status, manifests } = response.data;
+			const { status } = response.data;
 			if (status === 'success') {
 				// setOpen(true);
 				//   navigate('/netcare/admin/user');
@@ -88,7 +88,7 @@ const DetailsCard = ({ requisition }) => {
 						Authorization: `Bearer ${accessToken}`,
 					},
 				});
-				const { status, requisitions } = response.data;
+				const { status } = response.data;
 				if (status === 'success') {
 					navigate(-1);
 				}

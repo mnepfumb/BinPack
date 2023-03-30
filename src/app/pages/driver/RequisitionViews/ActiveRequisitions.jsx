@@ -1,8 +1,7 @@
-import { styled,  Box, Icon, Fab } from '@mui/material';
+import { styled,  Box } from '@mui/material';
 import { Fragment } from 'react';
 import ActiveRequisitionCards from './components/ActiveRequisitionCards';
 import SimpleCard from 'app/components/SimpleCard';
-import { useNavigate } from 'react-router-dom';
 
 const ContentBox = styled('div')(({ theme }) => ({
   margin: '30px',
@@ -26,7 +25,6 @@ const CardHeader = styled(Box)(() => ({
 }));
 
 const Requisitions = () => {
-  const navigate = useNavigate();
 
   return (
     <Fragment>
