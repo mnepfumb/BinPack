@@ -25,22 +25,22 @@ const H1 = styled('h1')(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const Span = styled('span')(({ textcolor }) => ({
-  fontSize: '13px',
-  color: textcolor,
-  marginLeft: '4px',
-}));
+// const Span = styled('span')(({ textcolor }) => ({
+//   fontSize: '13px',
+//   color: textcolor,
+//   marginLeft: '4px',
+// }));
 
-const IconBox = styled('div')(() => ({
-  width: 16,
-  height: 16,
-  color: '#fff',
-  display: 'flex',
-  overflow: 'hidden',
-  borderRadius: '300px ',
-  justifyContent: 'center',
-  '& .icon': { fontSize: '14px' },
-}));
+// const IconBox = styled('div')(() => ({
+//   width: 16,
+//   height: 16,
+//   color: '#fff',
+//   display: 'flex',
+//   overflow: 'hidden',
+//   borderRadius: '300px ',
+//   justifyContent: 'center',
+//   '& .icon': { fontSize: '14px' },
+// }));
 
 const StatCards2 = () => {
   const { palette } = useTheme();
@@ -60,10 +60,10 @@ const StatCards2 = () => {
 
           <ContentBox sx={{ pt: 2 }}>
             <H1>10.8k</H1>
-            <IconBox sx={{ background: 'rgba(9, 182, 109, 0.15)' }}>
+            {/* <IconBox sx={{ background: 'rgba(9, 182, 109, 0.15)' }}>
               <Icon className="icon">expand_less</Icon>
             </IconBox>
-            <Span textcolor={'#08ad6c'}>(+21%)</Span>
+            <Span textcolor={'#08ad6c'}>(+21%)</Span> */}
           </ContentBox>
         </Card>
       </Grid>
@@ -79,10 +79,10 @@ const StatCards2 = () => {
 
           <ContentBox sx={{ pt: 2 }}>
             <H1>$2.8M</H1>
-            <IconBox sx={{ background: bgError }}>
+            {/* <IconBox sx={{ background: bgError }}>
               <Icon className="icon">expand_less</Icon>
             </IconBox>
-            <Span textcolor={textError}>(+21%)</Span>
+            <Span textcolor={textError}>(+21%)</Span> */}
           </ContentBox>
         </Card>
       </Grid>

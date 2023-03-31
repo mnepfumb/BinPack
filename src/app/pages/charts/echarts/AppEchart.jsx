@@ -2,7 +2,7 @@ import { Box, styled, useTheme } from '@mui/material';
 import Breadcrumb from 'app/components/Breadcrumb';
 import SimpleCard from 'app/components/SimpleCard';
 import AreaChart from './AreaChart';
-import ComparisonChart from '../../admin/adminComponents/ComparisonChart';
+import ComparisonChart from '../../admin/components/ComparisonChart';
 import DoughnutChart from './Doughnut';
 import LineChart from './LineChart';
 

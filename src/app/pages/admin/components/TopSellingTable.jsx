@@ -64,11 +64,11 @@ const TopSellingTable = () => {
   return (
     <Card elevation={3} sx={{ pt: '20px', mb: 3 }}>
       <CardHeader>
-        <Title>top selling products</Title>
-        <Select size="small" defaultValue="this_month">
+        <Title>Waste (kg) Generation </Title>
+        {/* <Select size="small" defaultValue="this_month">
           <MenuItem value="this_month">This Month</MenuItem>
           <MenuItem value="last_month">Last Month</MenuItem>
-        </Select>
+        </Select> */}
       </CardHeader>
 
       <Box overflow="auto">
@@ -76,17 +76,17 @@ const TopSellingTable = () => {
           <TableHead>
             <TableRow>
               <TableCell sx={{ px: 3 }} colSpan={4}>
-                Name
+                Waste Category
               </TableCell>
               <TableCell sx={{ px: 0 }} colSpan={2}>
-                Revenue
+                Waste Mass(kg/PM)
               </TableCell>
-              <TableCell sx={{ px: 0 }} colSpan={2}>
+              {/* <TableCell sx={{ px: 0 }} colSpan={2}>
                 Stock Status
               </TableCell>
               <TableCell sx={{ px: 0 }} colSpan={1}>
                 Action
-              </TableCell>
+              </TableCell> */}
             </TableRow>
           </TableHead>
 
@@ -95,16 +95,15 @@ const TopSellingTable = () => {
               <TableRow key={index} hover>
                 <TableCell colSpan={4} align="left" sx={{ px: 0, textTransform: 'capitalize' }}>
                   <Box display="flex" alignItems="center">
-                    <Avatar src={product.imgUrl} />
                     <Paragraph sx={{ m: 0, ml: 4 }}>{product.name}</Paragraph>
                   </Box>
                 </TableCell>
 
                 <TableCell align="left" colSpan={2} sx={{ px: 0, textTransform: 'capitalize' }}>
-                  ${product.price > 999 ? (product.price / 1000).toFixed(1) + 'k' : product.price}
+                  ${product.price > 999 ? (product.price / 1000).toFixed(1)  : product.price}
                 </TableCell>
 
-                <TableCell sx={{ px: 0 }} align="left" colSpan={2}>
+                {/* <TableCell sx={{ px: 0 }} align="left" colSpan={2}>
                   {product.available ? (
                     product.available < 20 ? (
                       <Small bgcolor={bgSecondary}>{product.available} available</Small>
@@ -120,7 +119,7 @@ const TopSellingTable = () => {
                   <IconButton>
                     <Icon color="primary">edit</Icon>
                   </IconButton>
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             ))}
           </TableBody>
@@ -133,31 +132,56 @@ const TopSellingTable = () => {
 const productList = [
   {
     imgUrl: '/assets/images/products/headphone-2.jpg',
-    name: 'earphone',
+    name: 'Covid Waste',
     price: 100,
     available: 15,
   },
   {
     imgUrl: '/assets/images/products/headphone-3.jpg',
-    name: 'earphone',
+    name: 'General Waste',
     price: 1500,
     available: 30,
   },
   {
     imgUrl: '/assets/images/products/iphone-2.jpg',
-    name: 'iPhone x',
+    name: 'Hazardous Waste',
     price: 1900,
     available: 35,
   },
   {
     imgUrl: '/assets/images/products/iphone-1.jpg',
-    name: 'iPhone x',
+    name: 'Metal Waste',
     price: 100,
     available: 0,
   },
   {
     imgUrl: '/assets/images/products/headphone-3.jpg',
-    name: 'Head phone',
+    name: 'Paper Waste',
+    price: 1190,
+    available: 5,
+  },
+
+  {
+    imgUrl: '/assets/images/products/headphone-3.jpg',
+    name: 'Plastic Waste',
+    price: 1500,
+    available: 30,
+  },
+  {
+    imgUrl: '/assets/images/products/iphone-2.jpg',
+    name: 'Refuse Waste',
+    price: 1900,
+    available: 35,
+  },
+  {
+    imgUrl: '/assets/images/products/iphone-1.jpg',
+    name: 'Healthcare Risk Waste',
+    price: 100,
+    available: 0,
+  },
+  {
+    imgUrl: '/assets/images/products/headphone-3.jpg',
+    name: 'Other',
     price: 1190,
     available: 5,
   },
