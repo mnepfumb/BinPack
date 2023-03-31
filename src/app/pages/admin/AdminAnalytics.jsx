@@ -91,7 +91,7 @@ const AdminAnalytics = () => {
 								<SubTitle>Last 30 days</SubTitle>
 
 								<CategoryDoughnut
-									height="400px"
+									height="490px"
 									color={[ Silver, Olive, Green, Aqua, Teal, Navy, Fuchsia, Blue, Purple ]}
 								/>
 							</Card>
@@ -103,7 +103,7 @@ const AdminAnalytics = () => {
 				<SimpleCard title="Waste Status" sx={{ mb: '24px' }}>
 					<SimpleCard title="Diverted Waste Types">
 						<ComparisonChart2
-							height="400px"
+							height="500px"
 							color={[theme.palette.primary.dark, theme.palette.primary.light]}
 						/>
 					</SimpleCard>
