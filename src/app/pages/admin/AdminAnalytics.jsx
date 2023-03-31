@@ -10,9 +10,12 @@ import ComparisonChart2 from 'app/pages/admin/components/ComparisonChart2';
 import ModifiedAreaChart from 'app/pages/dashboard/shared/ModifiedAreaChart';
 
 import CategoryChart from './components/WasteCategories/CategoryChart';
-// import CategoryStats from './components/WasteCategories/CategoryStats';
 import CategoryDoughnut from './components/WasteCategories/CategoryDoughnut';
 import CategoriesTable  from './components/WasteCategories/CategoriesTable';
+
+import WasteTypesChart from './components/WasteTypes/WasteTypesChart';
+import WasteTypesDoughnut from './components/WasteTypes/WasteTypesDoughnut';
+import WasteTypesTable  from './components/WasteTypes/WasteTypesTable';
 
 const ContentBox = styled('div')(({ theme }) => ({
   margin: '30px',
@@ -65,6 +68,20 @@ const AdminAnalytics = () => {
 	const Olive = '#808000';
 	const Silver = '#C0C0C0';
 
+	const rosybrown = '#8B6969';
+	const cadmiumorange = '#FF6103';
+	const peachpuff = '#CDAF95';
+	const wheat3 = '#CDBA96';
+	const khaki4 = '#8B864E';
+	const cyan3 = '#00CDCD';
+	const paleturquoise4 = '#668B8B';
+	const dodgerblue = '#1E90FF';
+	const lightslateblue = '#8470FF';
+	const blueviolet = '#8A2BE2';
+	const lightpink4 = '#8B5F65';
+	const rosybrown4 = '#8B6969';
+	const antiquewhite4 = '#8B8378';
+
 	return (
 		<Fragment>
 			<ContentBox className="admin-analytics">
@@ -72,16 +89,15 @@ const AdminAnalytics = () => {
 					<SimpleCard  sx={{ mb: '24px' }}>
 						<CategoryChart
 							height="450px"
-							colors={[Silver, Olive, Green, Aqua, Teal, Navy, Fuchsia, Blue, Purple]}
+							colors={[
+								Silver, Olive, Green, Aqua, Teal, Navy, Fuchsia, Blue, Purple
+							]}
 						/>
 					</SimpleCard>
 					<Grid container spacing={3}>
 						<Grid item lg={6} md={8} sm={12} xs={12}>
 							<SimpleCard  sx={{ mb: '24px' }}>
-
 							<CategoriesTable />
-								
-								{/* <CategoryStats /> */}
 							</SimpleCard>
 						</Grid>
 						<Grid item lg={6} md={8} sm={12} xs={12}>
@@ -91,6 +107,39 @@ const AdminAnalytics = () => {
 								<SubTitle>Last 30 days</SubTitle>
 
 								<CategoryDoughnut
+									height="490px"
+									color={[ Silver, Olive, Green, Aqua, Teal, Navy, Fuchsia, Blue, Purple ]}
+								/>
+							</Card>
+							</SimpleCard>
+						</Grid>
+					</Grid>
+				</SimpleCard>
+
+				<SimpleCard title="Waste Types" sx={{ mb: '24px' }}>
+					<SimpleCard  sx={{ mb: '24px' }}>
+						<WasteTypesChart
+							height="550px"
+							colors={[
+								Silver, Olive, Green, Aqua, Teal, Navy, Fuchsia, rosybrown, Blue, Purple, cadmiumorange,
+								wheat3, khaki4, peachpuff, paleturquoise4, cyan3, dodgerblue, lightslateblue, blueviolet,
+								lightpink4 //, rosybrown4, antiquewhite4
+							]}
+						/>
+					</SimpleCard>
+					<Grid container spacing={3}>
+						<Grid item lg={6} md={8} sm={12} xs={12}>
+							<SimpleCard  sx={{ mb: '24px' }}>
+							<WasteTypesTable />
+							</SimpleCard>
+						</Grid>
+						<Grid item lg={6} md={8} sm={12} xs={12}>
+							<SimpleCard  sx={{ mb: '24px' }}>
+							<Card sx={{ px: 3, py: 2, mb: 3 }}>
+								<Title>Tasks</Title>
+								<SubTitle>Last 30 days</SubTitle>
+
+								<WasteTypesDoughnut
 									height="490px"
 									color={[ Silver, Olive, Green, Aqua, Teal, Navy, Fuchsia, Blue, Purple ]}
 								/>
