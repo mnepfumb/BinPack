@@ -1,6 +1,6 @@
 import axios from 'axios';
-const BASE_URL = 'http://localhost:3500';
-// const BASE_URL = 'https://binpackapi.azurewebsites.net';
+// const BASE_URL = 'http://localhost:3500';
+const BASE_URL = 'https://binpackapi.azurewebsites.net';
 // https://binpackapi.azurewebsites.net
 
 export default axios.create({
