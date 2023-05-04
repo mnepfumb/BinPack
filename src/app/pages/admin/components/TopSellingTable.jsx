@@ -1,18 +1,12 @@
 import {
-  Avatar,
   Box,
   Card,
-  Icon,
-  IconButton,
-  MenuItem,
-  Select,
   styled,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
-  useTheme,
 } from '@mui/material';
 import { Paragraph } from 'app/components/Typography';
 
@@ -44,22 +38,7 @@ const ProductTable = styled(Table)(() => ({
   '& td:first-of-type': { paddingLeft: '16px !important' },
 }));
 
-const Small = styled('small')(({ bgcolor }) => ({
-  width: 50,
-  height: 15,
-  color: '#fff',
-  padding: '2px 8px',
-  borderRadius: '4px',
-  overflow: 'hidden',
-  background: bgcolor,
-  boxShadow: '0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)',
-}));
-
 const TopSellingTable = () => {
-  const { palette } = useTheme();
-  const bgError = palette.error.main;
-  const bgPrimary = palette.primary.main;
-  const bgSecondary = palette.secondary.main;
 
   return (
     <Card elevation={3} sx={{ pt: '20px', mb: 3 }}>

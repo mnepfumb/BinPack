@@ -1,21 +1,12 @@
-import { Card, Grid, styled, useTheme } from '@mui/material';
+import { Card, Grid, styled } from '@mui/material';
 import { Fragment } from 'react';
-import DoughnutChart from 'app/pages/admin/components/Doughnut';
-import RowCards from './components/WasteCategories/RowCards';
-import StatCards from 'app/pages/admin/components/StatCards';
-import StatCards2 from 'app/pages/admin/components/StatCards2';
-import TopSellingTable from './components/TopSellingTable';
+import axios from 'app/api/axios';
+import { useState, useEffect } from "react";
 import SimpleCard from 'app/components/SimpleCard';
-import ComparisonChart2 from 'app/pages/admin/components/ComparisonChart2';
-import ModifiedAreaChart from 'app/pages/dashboard/shared/ModifiedAreaChart';
 
 import CategoryChart from './components/WasteCategories/CategoryChart';
 import CategoryDoughnut from './components/WasteCategories/CategoryDoughnut';
 import CategoriesTable  from './components/WasteCategories/CategoriesTable';
-
-import WasteTypesChart from './components/WasteTypes/WasteTypesChart';
-import WasteTypesDoughnut from './components/WasteTypes/WasteTypesDoughnut';
-import WasteTypesTable  from './components/WasteTypes/WasteTypesTable';
 
 const ContentBox = styled('div')(({ theme }) => ({
   margin: '30px',
@@ -33,31 +24,139 @@ const SubTitle = styled('span')(({ theme }) => ({
   fontSize: '0.875rem',
   color: theme.palette.text.secondary,
 }));
-
-const H4 = styled('h4')(({ theme }) => ({
-  fontSize: '1rem',
-  fontWeight: '500',
-  marginBottom: '16px',
-  textTransform: 'capitalize',
-  color: theme.palette.text.secondary,
-}));
-
-// const Container = styled('div')(({ theme }) => ({
-//   margin: '30px',
-//   [theme.breakpoints.down('sm')]: {
-//     margin: '16px',
-//   },
-//   '& .breadcrumb': {
-//     marginBottom: '30px',
-//     [theme.breakpoints.down('sm')]: {
-//       marginBottom: '16px',
-//     },
-//   },
-// }));
-
+const table_init = [
+	[{color: '#C0C0C0', category: 'Covid Waste', wastePerWeek: '0', wastePerMonth: '0'}],
+	[{color: '#808000', category: 'General Waste', wastePerWeek: '0', wastePerMonth: '0'}],
+	[{color: '#008000',  category: 'Hazardous Waste', wastePerWeek: '0', wastePerMonth: '0'}],
+	[{color: '#00FFFF', category: 'Metal Waste', wastePerWeek: '0', wastePerMonth: '0'}],
+	[{color: '#008080', category: 'Paper Waste', wastePerWeek: '0', wastePerMonth: '0'}],
+	[{color: '#0000FF', category: 'Plastic Waste', wastePerWeek: '0', wastePerMonth: '0'}],
+	[{color: '#000080', category: 'Refuse Waste', wastePerWeek: '0', wastePerMonth: '0'}],
+	[{color: '#FF00FF', category: 'Healthcare Risk Waste', wastePerWeek: '0', wastePerMonth: '0'}],
+	[{color: '#800080', category: 'Other', wastePerWeek: '0', wastePerMonth: '0'}]
+]
 const AdminAnalytics = () => {
-	const { palette } = useTheme();
-	const theme = useTheme();
+	const [dateBarDataset, setDateBarDataset] = useState([]);
+
+	const [pieReqDataset, setPieReqDataset] = useState([]);
+	const [pieMassDataset, setPieMassDataset] = useState([]);
+
+	const [tableReqDataset, setTableReqDataset] = useState([table_init]);
+	const [tableMassDataset, setTableMassDataset] = useState([table_init]);
+	
+	const [ RequisitionsDataset, setRequisitionsDataset ] = useState([
+		{
+			covid_waste: [ 0 ],
+			general_waste: [ 0 ],
+			hazardous_waste: [ 0 ],
+			metal_waste: [ 0 ],
+			paper_waste: [ 0 ],
+			plastic_waste: [ 0 ],
+			refuse_waste: [ 0 ],
+			healthcare_waste: [ 0 ],
+			other: [ 0 ]
+		}
+	]);
+	const [ MassDataset, setMasssDataset ] = useState([
+		{
+			covid_waste: [ 0.0 ],
+			general_waste: [ 0.0 ],
+			hazardous_waste: [ 0.0 ],
+			metal_waste: [ 0.0 ],
+			paper_waste: [ 0.0 ],
+			plastic_waste: [ 0.0 ],
+			refuse_waste: [ 0.0 ],
+			healthcare_waste: [ 0.0 ],
+			other: [ 0.0 ]
+		}
+	]);
+
+	useEffect(() => {
+		const accessToken = window.localStorage.getItem('accessToken');
+
+		// const fetchRequisitionData = async () => {
+		// 	try {
+		// 		const response = await axios.get('/requisition', {
+		// 			headers: {
+		// 				'Content-Type': 'application/json',
+		// 				Authorization: `Bearer ${accessToken}`,
+		// 			},
+		// 		// withCredentials: true
+		// 		});
+		// 		const { status, requisitions } = response.data;
+		// 		console.log('requisitions: ' + requisitions);
+		// 		if (status === "success") {
+		// 			// setRequisitions(requisitions);
+		// 		}
+		// 	} catch (error) {
+		// 		console.log('error: ' + error);
+		// 	}
+		// };
+		
+		const fetchBarData = async () => {
+			try {
+				const response = await axios.get('/dashboards/req-waste-category-bar', {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${accessToken}`,
+					},
+				});
+				const { status, Requisitions, Mass, date_data } = response.data;
+				console.log(Requisitions[0])
+				if (status === "success") {
+					setDateBarDataset(date_data);
+					setRequisitionsDataset(Requisitions);
+					setMasssDataset(Mass)
+				}
+				
+			} catch (error) {
+				console.log('error: ' + error);
+			}
+		};
+		
+		const fetchPieData = async () => {
+			try {
+				const response = await axios.get('/dashboards/req-waste-category-pie', {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${accessToken}`,
+					},
+				});
+				const { status, pie_req_data, pie_mass_data } = response.data;
+				if (status === "success") {
+					setPieReqDataset(pie_req_data)
+					setPieMassDataset(pie_mass_data)
+				}
+				
+			} catch (error) {
+				console.log('error: ' + error);
+			}
+		};
+		
+		const fetchTableData = async () => {
+			try {
+				const response = await axios.get('/dashboards/req-waste-category-table', {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${accessToken}`,
+					},
+				});
+				const { status, total_req_waste, total_mass_waste } = response.data;
+				if (status === "success") {
+					setTableReqDataset(total_req_waste)
+					setTableMassDataset(total_mass_waste)
+				}
+				
+			} catch (error) {
+				console.log('error: ' + error);
+			}
+		};
+		// fetchRequisitionData();
+		fetchBarData();
+		fetchPieData();
+		fetchTableData()
+	}, []);
+
 	const Purple = '#800080';
 	const Fuchsia = '#FF00FF';
 	const Navy = '#000080';
@@ -68,47 +167,38 @@ const AdminAnalytics = () => {
 	const Olive = '#808000';
 	const Silver = '#C0C0C0';
 
-	const rosybrown = '#8B6969';
-	const cadmiumorange = '#FF6103';
-	const peachpuff = '#CDAF95';
-	const wheat3 = '#CDBA96';
-	const khaki4 = '#8B864E';
-	const cyan3 = '#00CDCD';
-	const paleturquoise4 = '#668B8B';
-	const dodgerblue = '#1E90FF';
-	const lightslateblue = '#8470FF';
-	const blueviolet = '#8A2BE2';
-	const lightpink4 = '#8B5F65';
-	const rosybrown4 = '#8B6969';
-	const antiquewhite4 = '#8B8378';
-
 	return (
 		<Fragment>
 			<ContentBox className="admin-analytics">
-				<SimpleCard title="Waste Categories" sx={{ mb: '24px' }}>
+				<SimpleCard title="Waste Categories: Requisitions" sx={{ mb: '24px' }}>
 					<SimpleCard  sx={{ mb: '24px' }}>
 						<CategoryChart
 							height="450px"
 							colors={[
 								Silver, Olive, Green, Aqua, Teal, Navy, Fuchsia, Blue, Purple
 							]}
+							Series={RequisitionsDataset}
+							dateBarDataset={dateBarDataset}
 						/>
 					</SimpleCard>
 					<Grid container spacing={3}>
 						<Grid item lg={6} md={8} sm={12} xs={12}>
 							<SimpleCard  sx={{ mb: '24px' }}>
-							<CategoriesTable />
+							<CategoriesTable tableDataset={tableReqDataset} />
 							</SimpleCard>
 						</Grid>
 						<Grid item lg={6} md={8} sm={12} xs={12}>
 							<SimpleCard  sx={{ mb: '24px' }}>
 							<Card sx={{ px: 3, py: 2, mb: 3 }}>
-								<Title>Tasks</Title>
+								<Title>Waste Category</Title>
 								<SubTitle>Last 30 days</SubTitle>
 
 								<CategoryDoughnut
 									height="490px"
 									color={[ Silver, Olive, Green, Aqua, Teal, Navy, Fuchsia, Blue, Purple ]}
+									pieDataset={pieReqDataset}
+									tooltip={'{a} <br/>{b}: {c} ({d}%)'}
+									formatter={'{b}: {c} ({d}%)'}
 								/>
 							</Card>
 							</SimpleCard>
@@ -116,32 +206,40 @@ const AdminAnalytics = () => {
 					</Grid>
 				</SimpleCard>
 
-				<SimpleCard title="Waste Types" sx={{ mb: '24px' }}>
+
+
+				<SimpleCard title="Waste Categories: Mass" sx={{ mb: '24px' }}>
 					<SimpleCard  sx={{ mb: '24px' }}>
-						<WasteTypesChart
-							height="550px"
+						<CategoryChart
+							height="450px"
 							colors={[
-								Silver, Olive, Green, Aqua, Teal, Navy, Fuchsia, rosybrown, Blue, Purple, cadmiumorange,
-								wheat3, khaki4, peachpuff, paleturquoise4, cyan3, dodgerblue, lightslateblue, blueviolet,
-								lightpink4 //, rosybrown4, antiquewhite4
+								Silver, Olive, Green, Aqua, Teal, Navy, Fuchsia, Blue, Purple
 							]}
+							Series={MassDataset}
+							dateBarDataset={dateBarDataset}
 						/>
 					</SimpleCard>
 					<Grid container spacing={3}>
 						<Grid item lg={6} md={8} sm={12} xs={12}>
 							<SimpleCard  sx={{ mb: '24px' }}>
-							<WasteTypesTable />
+							<CategoriesTable 
+							tableDataset={tableMassDataset} 
+							// tableName={''}
+							/>
 							</SimpleCard>
 						</Grid>
 						<Grid item lg={6} md={8} sm={12} xs={12}>
 							<SimpleCard  sx={{ mb: '24px' }}>
 							<Card sx={{ px: 3, py: 2, mb: 3 }}>
-								<Title>Tasks</Title>
+								<Title>Waste Category</Title>
 								<SubTitle>Last 30 days</SubTitle>
 
-								<WasteTypesDoughnut
+								<CategoryDoughnut
 									height="490px"
 									color={[ Silver, Olive, Green, Aqua, Teal, Navy, Fuchsia, Blue, Purple ]}
+									pieDataset={pieMassDataset}
+									tooltip={'{a} <br/>{b}: {c}kg ({d}%)'}
+									formatter={'{b}: {c}kg ({d}%)'}
 								/>
 							</Card>
 							</SimpleCard>
@@ -149,43 +247,6 @@ const AdminAnalytics = () => {
 					</Grid>
 				</SimpleCard>
 
-				<SimpleCard title="Waste Status" sx={{ mb: '24px' }}>
-					<SimpleCard title="Diverted Waste Types">
-						<ComparisonChart2
-							height="500px"
-							color={[theme.palette.primary.dark, theme.palette.primary.light]}
-						/>
-					</SimpleCard>
-				</SimpleCard>
-
-				<Grid container spacing={3}>
-					<Grid item lg={8} md={8} sm={12} xs={12}>
-						
-					<ModifiedAreaChart />
-						<SimpleCard title="ESG Reporting">
-							<StatCards />
-						</SimpleCard>
-
-						<TopSellingTable />
-
-						<H4>Ongoing Projects</H4>
-						<RowCards />
-					</Grid>
-					<Grid item lg={4} md={4} sm={12} xs={12}>
-						<Card sx={{ px: 3, py: 2, mb: 3 }}>
-							<Title>Tasks</Title>
-							<SubTitle>Last 30 days</SubTitle>
-
-							<DoughnutChart
-								height="300px"
-								color={[palette.primary.dark, palette.primary.main, palette.primary.light]}
-							/>
-						</Card>
-						<StatCards2 />
-						{/* <UpgradeCard />
-						<Campaigns /> */}
-					</Grid>
-				</Grid>
 			</ContentBox>
 		</Fragment>
 	);

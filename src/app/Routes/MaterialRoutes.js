@@ -18,6 +18,13 @@ const AppSnackbar = Loadable(lazy(() => import('../pages/material-kit/snackbar/A
 const AppAutoComplete = Loadable(lazy(() => import('../pages/material-kit/auto-complete/AppAutoComplete')));
 const AppExpansionPanel = Loadable(lazy(() => import('../pages/material-kit/expansion-panel/AppExpansionPanel')));
 
+//11111111111111
+
+const WasteTypesAnalytics = Loadable(lazy(() => import('../pages/admin/WasteTypesAnalytics')));
+const SmartBinsAnalytics = Loadable(lazy(() => import('../pages/admin/SmartBinsAnalytics')));
+const TrackingAnalytics = Loadable(lazy(() => import('../pages/admin/TrackingAnalytics')));
+const ESGReportingAnalytics = Loadable(lazy(() => import('../pages/admin/ESGReportingAnalytics')));
+
 const Requisitions = Loadable(lazy(() => import('../pages/admin/RequisitionViews/ActiveRequisitions')));
 const RequisitionAddForm = Loadable(lazy(() => import('../pages/admin/RequisitionViews/RequisitionAddForm')));
 const ViewRequisitionDetails = Loadable(lazy(() => import('../pages/admin/RequisitionViews/ViewRequisitionDetails')));
@@ -36,7 +43,6 @@ const UserEditForm = Loadable(lazy(() => import('../pages/admin/UserViews/UsersE
 const UserAddForm = Loadable(lazy(() => import('../pages/admin/UserViews/UsersAddForm')));
 
 //11111111111111
-
 
 const Hospital_Requisitions = Loadable(lazy(() => import('../pages/hospital/RequisitionViews/ActiveRequisitions')));
 const Hospital_Completed_Requisitions = Loadable(lazy(() => import('../pages/hospital/RequisitionViews/CompletedRequisitions')));
@@ -77,9 +83,29 @@ const Driver_ViewRequisitionDetails = Loadable(lazy(() => import('../pages/drive
 const Driver_ViewCompletedRequisitionDetails = Loadable(lazy(() => import('../pages/driver/RequisitionViews/ViewCompletedRequisitionDetails')));
 const Driver_EditManifest = Loadable(lazy(() => import('../pages/driver/RequisitionViews/components/EditManifest')));
 
-//11111111111111
+//11111111111111 
 
 const materialRoutes = [
+  {
+    path: '/netcare/admin/waste-types-dashboard',
+    element: <WasteTypesAnalytics />,
+    auth: authRoles.admin
+  },
+  {
+    path: '/netcare/admin/smart-bins-dashboard',
+    element: <SmartBinsAnalytics />,
+    auth: authRoles.admin
+  },
+  {
+    path: '/netcare/admin/ESG-dashboard',
+    element: <ESGReportingAnalytics />,
+    auth: authRoles.admin
+  },
+  {
+    path: '/netcare/admin/tracking-dashboard',
+    element: <TrackingAnalytics />,
+    auth: authRoles.admin
+  },
   {
     path: '/netcare/admin/requisitions',
     element: <Requisitions />,

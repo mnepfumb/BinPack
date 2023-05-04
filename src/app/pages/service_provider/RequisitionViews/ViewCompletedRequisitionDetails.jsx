@@ -35,10 +35,10 @@ margin: '30px',
 const ViewCompletedRequisitionDetails = () => {
     const navigate = useNavigate();
 	const  location  = useLocation();
-	console.log('location.requision_id: ' +location.state.requisition.requision_id);
+	//console.log('location.requision_id: ' +location.state.requisition.requision_id);
 
 	const ShowViewManifest = (requisition) => {
-		console.log('requisition.createManifest: ' + requisition.createManifest);
+		//console.log('requisition.createManifest: ' + requisition.createManifest);
 		if (requisition.createManifest) {
 			return <ViewManifest requisition={requisition}/>;
 		}

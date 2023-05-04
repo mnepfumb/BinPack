@@ -50,7 +50,7 @@ const CompletedRequisitionsCards = () => {
 		const fetchRequisitionData = async () => {
 			try {
 				const accessToken = window.localStorage.getItem('accessToken');
-				console.log('user.email: ' + user.id);
+				//console.log('user.email: ' + user.id);
 				var url =  '/requisition/hospital?driver_id='+user.id
 				const response = await axios.get( url , {
 					headers: {
@@ -59,12 +59,12 @@ const CompletedRequisitionsCards = () => {
 					},
 				});
 				const { status, requisitions } = response.data;
-				console.log('requisitions: ' + requisitions);
+				//console.log('requisitions: ' + requisitions);
 				if (status === "success") {
 					requisitions.forEach((requisition) => {
-						console.log('user.role: ' + requisition.status);
+						//console.log('user.role: ' + requisition.status);
 						if (requisition.status === 'Waste Disposed') {
-							console.log('user: ' + requisition.name);
+							//console.log('user: ' + requisition.name);
 							requisitionlist.push({
 								requisition
 							})
@@ -74,7 +74,7 @@ const CompletedRequisitionsCards = () => {
 					setRequisitions(requisitionlist);
 				}
 			} catch (error) {
-				console.log('error: ' + error);
+				//console.log('error: ' + error);
 			}
 		};
 		fetchRequisitionData();

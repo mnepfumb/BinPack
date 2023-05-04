@@ -74,7 +74,7 @@ const JwtLogin = () => {
       var Logging = await logIn(values.email, values.password);
       const { accessToken, user } = Logging;
 
-      console.log("accessToken: " + accessToken+ " user: " + user);
+      //console.log("accessToken: " + accessToken+ " user: " + user);
 
       await login(accessToken, user);
       if (user.role === 'admin') {

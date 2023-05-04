@@ -33,7 +33,7 @@ const AddServiceProviderForm = () => {
 	const handleSubmit = async (event) => {
 		try {
 			const accessToken = window.localStorage.getItem('accessToken')
-			console.log("accessToken: " + accessToken);
+			//console.log("accessToken: " + accessToken);
 			const response = await axios.post('/company', { 
 				name: event.target.companyName.value,
 				phone: event.target.mobile.value,
@@ -50,14 +50,14 @@ const AddServiceProviderForm = () => {
 				},
 				// withCredentials: true
 			})
-			const { status, companies } = response.data;
-			console.log("companies: " + companies);
+			const { status } = response.data;
+			//console.log("companies: " + companies);
 			if (status === 'success') {
 				setOpen(true);
 				navigate('/netcare/hospital/service-provider');
 			}
 		} catch (error) {
-			console.log("error: " + error);
+			//console.log("error: " + error);
 		}
 	};
 

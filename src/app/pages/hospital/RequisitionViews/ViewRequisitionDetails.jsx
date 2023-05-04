@@ -35,7 +35,7 @@ const CardHeader = styled(Box)(() => ({
 const ViewRequisitionDetails = () => {
 	const  location  = useLocation();
     const navigate = useNavigate();
-	console.log('location.requision_id: ' +location.state.requisition.requision_id);
+	//console.log('location.requision_id: ' +location.state.requisition.requision_id);
 
     const onClick = () => navigate(-1);
 

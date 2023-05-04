@@ -58,10 +58,10 @@ const AddUserForm = () => {
       const { hospitals } = response.data;
       const { companies } = response2.data;
 
-      console.log(hospitals);
+      //console.log(hospitals);
 
       if (active) {
-        console.log(hospitals);
+        //console.log(hospitals);
         setHospitalOptions(hospitals);
         setCompaniesOptions(companies);
       }
@@ -80,7 +80,7 @@ const AddUserForm = () => {
   }, [open]);
 
   const handleSubmit = async (event) => {
-    console.log(event.target.role.value);
+    //console.log(event.target.role.value);
     
     var companyname = ''
     var company_Id = ''
@@ -93,11 +93,11 @@ const AddUserForm = () => {
       company_Id = companiesDropdownValue.company_id
     }
     
-    console.log('companyname: ' + companyname);
-    console.log('company_Id: ' + company_Id);
-    console.log(event.target.userstatus.value);
+    //console.log('companyname: ' + companyname);
+    //console.log('company_Id: ' + company_Id);
+    //console.log(event.target.userstatus.value);
     try {
-      console.log('accessToken: ' + accessToken);
+      //console.log('accessToken: ' + accessToken);
       const response = await axios.post('/users', {
         name: event.target.username.value,
         surname: event.target.surname.value,
@@ -123,7 +123,7 @@ const AddUserForm = () => {
         navigate('/netcare/admin/user');
       }
     } catch (error) {
-      console.log('error: ' + error);
+      //console.log('error: ' + error);
     }
   };
 
@@ -191,14 +191,14 @@ const AddUserForm = () => {
   };
 
   const handleHospitalDropdownChange = (_, newValue) => {
-    console.log('newValue');
-    console.log(newValue);
+    //console.log('newValue');
+    //console.log(newValue);
     setHospitalDropdownValue(newValue);
   };
 
   const handleCompaniesDropdownChange = (_, newValue) => {
-    console.log('newValue');
-    console.log(newValue);
+    //console.log('newValue');
+    //console.log(newValue);
     setCompaniesDropdownValue(newValue);
   };
 

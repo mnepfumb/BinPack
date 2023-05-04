@@ -47,14 +47,14 @@ const AddRequisitionForm = () => {
 
   
   const handleHospitalDropdownChange = (_, newValue) => {
-    console.log('newValue');
-    console.log(newValue);
+    //console.log('newValue');
+    //console.log(newValue);
     setHospitalDropdownValue(newValue);
   };
 
   const handleCompaniesDropdownChange = (_, newValue) => {
-    console.log('newValue');
-    console.log(newValue);
+    //console.log('newValue');
+    //console.log(newValue);
     setCompaniesDropdownValue(newValue);
   };
 
@@ -113,19 +113,19 @@ const AddRequisitionForm = () => {
   }, [hospital_loading, hospitalOptions]);
 
   const handleSubmit = async (event) => {
-    console.log('companiesDropdownValue.name: ' + companiesDropdownValue.name);
-    console.log('companiesDropdownValue.company_id: ' + companiesDropdownValue.company_id);
-    console.log('event.target.collection_address.value: ' + event.target.collection_address.value);
-    console.log('hospitalDropdownValue.name: ' + hospitalDropdownValue.name);
-    console.log('hospitalDropdownValue.hospital_id: ' + hospitalDropdownValue.hospital_id);
-    console.log('event.target.details.value: ' + event.target.details.value);
-    console.log('wasteType: ' + wasteType.label);
-    console.log('event.target.waste_category.value: ' + event.target.waste_category.value);
-    console.log('event.target.date.value: ' + getDate);
-    console.log('event.target.expected_qty.value: ' + event.target.expected_qty.value);
-    console.log('event.target.bin_location.value: ' + event.target.bin_location.value);
+    //console.log('companiesDropdownValue.name: ' + companiesDropdownValue.name);
+    //console.log('companiesDropdownValue.company_id: ' + companiesDropdownValue.company_id);
+    //console.log('event.target.collection_address.value: ' + event.target.collection_address.value);
+    //console.log('hospitalDropdownValue.name: ' + hospitalDropdownValue.name);
+    //console.log('hospitalDropdownValue.hospital_id: ' + hospitalDropdownValue.hospital_id);
+    //console.log('event.target.details.value: ' + event.target.details.value);
+    //console.log('wasteType: ' + wasteType.label);
+    //console.log('event.target.waste_category.value: ' + event.target.waste_category.value);
+    //console.log('event.target.date.value: ' + getDate);
+    //console.log('event.target.expected_qty.value: ' + event.target.expected_qty.value);
+    //console.log('event.target.bin_location.value: ' + event.target.bin_location.value);
     try {
-      console.log('accessToken: ' + accessToken);
+      //console.log('accessToken: ' + accessToken);
       const response = await axios.post('/requisition', {
         serviceProviderName: companiesDropdownValue.name,
         serviceProviderId: companiesDropdownValue.company_id,
@@ -161,7 +161,7 @@ const AddRequisitionForm = () => {
         navigate(-1);
       }
     } catch (error) {
-      console.log('error: ' + error);
+      //console.log('error: ' + error);
     }
   };
 
@@ -172,8 +172,8 @@ const AddRequisitionForm = () => {
 
   const hanndleWasteType = (wasteCategory) => {
     var waste_options;
-    console.log('waste_options: ' + waste_options);
-    console.log('wasteCategory: ' + wasteCategory);
+    //console.log('waste_options: ' + waste_options);
+    //console.log('wasteCategory: ' + wasteCategory);
     if (wasteCategory === 'Covid Waste') {
       waste_options = covid_waste
     } else if (wasteCategory === 'General Waste') {
@@ -193,7 +193,7 @@ const AddRequisitionForm = () => {
     } else if (wasteCategory === 'Other') {
       waste_options = other_waste
     }
-    console.log('waste_options: ' + waste_options);
+    //console.log('waste_options: ' + waste_options);
     if (wasteCategory !== undefined) {
       return (
         <AutoComplete

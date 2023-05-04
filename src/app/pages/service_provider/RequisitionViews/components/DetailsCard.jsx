@@ -51,7 +51,7 @@ const DetailsCard = ({ requisition }) => {
 			//   navigate('/netcare/admin/user');
 			}
 		} catch (error) {
-			console.log('patch_error2: ' + error);
+			//console.log('patch_error2: ' + error);
 		}
 	}
 	const onClickReject = async () => {
@@ -73,7 +73,7 @@ const DetailsCard = ({ requisition }) => {
 			//   navigate('/netcare/admin/user');
 			}
 		} catch (error) {
-			console.log('patch_error2: ' + error);
+			//console.log('patch_error2: ' + error);
 		}
 	}
 

@@ -5,13 +5,13 @@ const WasteTypesChart = ({ height, colors = []  }) => {
   const { palette } = useTheme();
 
   const option = {
-    grid: { left: '6%', bottom: '10%', right: '1%', top: '30%'},
-    legend: {
-      itemGap: 100,
-      icon: 'circle',
-      // bottom: 400,
-      textStyle: { color: palette.text.secondary, fontSize: 10, fontFamily: 'roboto' },
-    },
+    grid: { left: '6%', bottom: '10%', right: '1%',},
+    // legend: {
+    //   itemGap: 100,
+    //   icon: 'circle',
+    //   // bottom: 400,
+    //   textStyle: { color: palette.text.secondary, fontSize: 10, fontFamily: 'roboto' },
+    // },
     color: [
       ...colors
     ],
@@ -27,6 +27,7 @@ const WasteTypesChart = ({ height, colors = []  }) => {
         // ['June', 1700, 1250, 1500, 800, 2200, 1200, 950, 800, 2200, 1200, 950, 800, 2200, 1200, 950, 800, 2200, 1200, 950, 800],
       ],
     },
+    tooltip: { show: true, trigger: 'item',  },
     xAxis: {
       type: 'category',
       axisLine: { show: false },

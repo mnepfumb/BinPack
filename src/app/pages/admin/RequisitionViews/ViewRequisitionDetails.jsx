@@ -33,18 +33,18 @@ const CardHeader = styled(Box)(() => ({
 
 const ViewRequisitionDetails = () => {
 	const  location  = useLocation();
-	console.log('location.requision_id: ' +location.state.requisition.requision_id);
+	//console.log('location.requision_id: ' +location.state.requisition.requision_id);
 
 	const ShowDriverAssignCard = (requisition) => {
-		console.log('requisition.createManifest: ' + requisition.createManifest);
-		console.log('requisition.acceptRequisitions: ' + requisition.acceptRequisitions);
+		//console.log('requisition.createManifest: ' + requisition.createManifest);
+		//console.log('requisition.acceptRequisitions: ' + requisition.acceptRequisitions);
 		if (requisition.acceptRequisitions) {
 			return <DriverAssignCard requisition={requisition}/>
 		}
 	}
 
 	const ShowViewManifest = (requisition) => {
-		console.log('requisition.createManifest: ' + requisition.createManifest);
+		//console.log('requisition.createManifest: ' + requisition.createManifest);
 		if (requisition.createManifest) {
 			return <ViewManifest requisition={requisition}/>;
 		}

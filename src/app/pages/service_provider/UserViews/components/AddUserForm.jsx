@@ -56,10 +56,10 @@ const AddUserForm = () => {
       });
       const { hospitals } = response.data;
 
-      console.log(hospitals);
+      //console.log(hospitals);
 
       if (active) {
-        console.log(hospitals);
+        //console.log(hospitals);
         setHospitalOptions(hospitals);
       }
     })();
@@ -76,12 +76,12 @@ const AddUserForm = () => {
   }, [open]);
 
   const handleSubmit = async (event) => {
-    console.log(event.target.role.value);
-    console.log(dropdownValue.name);
-    console.log(dropdownValue.hospital_id);
-    console.log(event.target.userstatus.value);
+    //console.log(event.target.role.value);
+    //console.log(dropdownValue.name);
+    //console.log(dropdownValue.hospital_id);
+    //console.log(event.target.userstatus.value);
     try {
-      console.log('accessToken: ' + accessToken);
+      //console.log('accessToken: ' + accessToken);
       const response = await axios.post('/users', {
         name: event.target.username.value,
         surname: event.target.surname.value,
@@ -107,12 +107,12 @@ const AddUserForm = () => {
         navigate('/service_provider/user');
       }
     } catch (error) {
-      console.log('error: ' + error);
+      //console.log('error: ' + error);
     }
   };
   const handleDropdownChange = (_, newValue) => {
-    console.log('newValue');
-    console.log(newValue);
+    //console.log('newValue');
+    //console.log(newValue);
     // if (newValue && newValue.inputValue) {
     // 	setDropdownValue({ label: newValue.inputValue });
     //   return;

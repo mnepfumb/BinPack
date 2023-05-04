@@ -77,9 +77,9 @@ const DriverAssignCard = ({ requisition }) => {
 			});
 			const { users } = response.data;
 			users.forEach((user) => {
-				console.log('user.role: ' + user.role);
+				//console.log('user.role: ' + user.role);
 				if (user.role === 'driver') {
-					console.log('user: ' + user.name);
+					//console.log('user: ' + user.name);
 					userlist.push({
 						id: user._id,
 						name: user.name +' '+ user.surname
@@ -87,7 +87,7 @@ const DriverAssignCard = ({ requisition }) => {
 				}
 			});
 			setHospitalOptions(userlist);
-			console.log('hospitalOptions: ' + hospitalOptions);
+			//console.log('hospitalOptions: ' + hospitalOptions);
 		})();
 
 		return () => {
@@ -110,9 +110,9 @@ const DriverAssignCard = ({ requisition }) => {
 				if (status === 'success') {
 					setManifests(manifests[0])
 				}
-				console.log('setManifests: ' + manifest._id);
+				//console.log('setManifests: ' + manifest._id);
 			} catch (error) {
-			  console.log('error: ' + error);
+			  //console.log('error: ' + error);
 			}
 		  };
 		fetchManifestlData() 
@@ -122,13 +122,13 @@ const DriverAssignCard = ({ requisition }) => {
 	}, [manifest._id, open, requisition.requision_id]);
 
 	const handleHospitalDropdownChange = (_, newValue) => {
-		console.log('newValue');
-		console.log(newValue);
+		//console.log('newValue');
+		//console.log(newValue);
 		setHospitalDropdownValue(newValue);
 	};
 
 	const handleManifeststatus = (_, newValue) => {
-		console.log('ManifeststatusnewValue: ' + newValue.label);
+		//console.log('ManifeststatusnewValue: ' + newValue.label);
 		if (newValue && newValue.inputValue) {
 			setManifeststatus({ label: newValue.inputValue });
 			return;
@@ -139,8 +139,8 @@ const DriverAssignCard = ({ requisition }) => {
 	const handleSubmit = async () => {
 
 		try {
-			console.log('manifest: ' + manifest._id);
-			console.log('hospitalDropdownValue.id: ' + hospitalDropdownValue.id);
+			//console.log('manifest: ' + manifest._id);
+			//console.log('hospitalDropdownValue.id: ' + hospitalDropdownValue.id);
 			const response = await axios.patch( '/manifest/'+ manifest._id, {
 				driver_id: hospitalDropdownValue.id,
 				status: manifeststatus.label,
@@ -156,7 +156,7 @@ const DriverAssignCard = ({ requisition }) => {
 			//   navigate('/netcare/admin/user');
 			}
 		} catch (error) {
-			console.log('patch_error1: ' + error);
+			//console.log('patch_error1: ' + error);
 		}
 
 		try {
@@ -176,12 +176,12 @@ const DriverAssignCard = ({ requisition }) => {
 			//   navigate('/netcare/admin/user');
 			}
 		} catch (error) {
-			console.log('patch_error2: ' + error);
+			//console.log('patch_error2: ' + error);
 		}
 	};
 
 	const DriverCheck = (requisition) => {
-		console.log('manifest.driver_id: ' + requisition.driver_id);
+		//console.log('manifest.driver_id: ' + requisition.driver_id);
 		if (requisition.driver_id !== null || requisition.driver_id !== '') {
 			return <small>A driver has already been assigned to this task.</small>
 		}

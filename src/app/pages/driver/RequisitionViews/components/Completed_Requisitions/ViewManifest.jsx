@@ -50,15 +50,15 @@ const ViewManifest = ({ requisition }) => {
     const navigate = useNavigate();
 
 
-	console.log("ViewManifest" + requisition.requision_id);
+	//console.log("ViewManifest" + requisition.requision_id);
 
 
 	const fetchHospitalData = async () => {
 		try {
 		  const accessToken = window.localStorage.getItem('accessToken');
-		  console.log('accessToken: ' + accessToken);
+		  //console.log('accessToken: ' + accessToken);
 		  const url = '/manifest/requisionId?requisition_id='+ requisition.requision_id;
-		  console.log('url: ' + url);
+		  //console.log('url: ' + url);
 
 		  const response = await axios.get(url, {
 			headers: {
@@ -69,10 +69,10 @@ const ViewManifest = ({ requisition }) => {
 		  const { status, manifests } = response.data;
 		  if (status === 'success') {
 			setManifest(manifests[0]);
-			console.log('manifests[0]: ' + manifests[0]);
+			//console.log('manifests[0]: ' + manifests[0]);
 		  }
 		} catch (error) {
-		  console.log('error: ' + error);
+		  //console.log('error: ' + error);
 		}
 	};
 

@@ -55,7 +55,7 @@ const UserTable = () => {
   const fetchHospitalData = async () => {
     try {
       const accessToken = window.localStorage.getItem('accessToken');
-      console.log('accessToken: ' + accessToken);
+      //console.log('accessToken: ' + accessToken);
       const response = await axios.get('/users', {
         headers: {
           'Content-Type': 'application/json',
@@ -64,13 +64,13 @@ const UserTable = () => {
         // withCredentials: true
       });
       const { status, users } = response.data;
-      console.log('users: ' + users);
+      //console.log('users: ' + users);
       if (status === 'success') {
-        console.log(`user.is_active: ${users[2].is_active}`);
+        //console.log(`user.is_active: ${users[2].is_active}`);
         setUsers(users);
       }
     } catch (error) {
-      console.log('error: ' + error);
+      //console.log('error: ' + error);
     }
   };
 

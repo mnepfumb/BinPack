@@ -97,7 +97,7 @@ const EditManifest = () => {
 
     const onClick = () => navigate(-1);
 
-    console.log("EditManifest manifest: " + manifest.state.manifest.requisition_id);
+    //console.log("EditManifest manifest: " + manifest.state.manifest.requisition_id);
 	useEffect(() => {
 		ValidatorForm.addValidationRule("isPasswordMatch", (value) => {
 		if (value !== state.password) return false;
@@ -127,9 +127,9 @@ const EditManifest = () => {
             }
 
 			const accessToken = window.localStorage.getItem('accessToken')
-			console.log("accessToken: " + accessToken);
+			//console.log("accessToken: " + accessToken);
             var url = '/manifest/' + manifest.state.manifest._id;
-			console.log("url: " + url);
+			//console.log("url: " + url);
 			const response = await axios.patch(url, { 
 				status: manifeststatus,
 				operator_in: event.target.operator_in.value,
@@ -157,13 +157,13 @@ const EditManifest = () => {
 				},
 				// withCredentials: true
 			})
-			const { status, manifests } = response.data;
-			console.log("manifests: " + manifests);
+			const { status } = response.data;
+			//console.log("manifests: " + manifests);
 			if (status === 'success') {
 				navigate(-1);
 			}
 		} catch (error) {
-			console.log("error: " + error);
+			//console.log("error: " + error);
 		}
 	};
 

@@ -50,10 +50,10 @@ const EditUserForm = () => {
       });
       const { hospitals } = response.data;
 
-      console.log(hospitals);
+      //console.log(hospitals);
 
       if (active) {
-        console.log(hospitals);
+        //console.log(hospitals);
         setHospitalOptions(hospitals);
       }
     })();
@@ -88,10 +88,10 @@ const EditUserForm = () => {
 
     try {
       const accessToken = window.localStorage.getItem('accessToken');
-      console.log('location.state.user._id: ' + location.state.user._id);
+      //console.log('location.state.user._id: ' + location.state.user._id);
 
       var url = '/users/' + location.state.user._id;
-      console.log('url: ' + url);
+      //console.log('url: ' + url);
 
       const response = await axios.patch(url, {
         name: event.target.username.value,
@@ -114,12 +114,12 @@ const EditUserForm = () => {
         navigate('/netcare/hospital/user');
       }
     } catch (error) {
-      console.log('error: ' + error);
+      //console.log('error: ' + error);
     }
   };
   const handleDropdownChange = (_, newValue) => {
-    console.log('newValue');
-    console.log(newValue);
+    //console.log('newValue');
+    //console.log(newValue);
     setDropdownValue(newValue);
   };
 

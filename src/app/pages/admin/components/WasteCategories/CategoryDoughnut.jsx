@@ -1,24 +1,24 @@
 import { useTheme } from '@mui/system';
 import ReactEcharts from 'echarts-for-react';
 
-const CategoryDoughnut = ({ height, color = [] }) => {
+const CategoryDoughnut = ({ height, color = [], pieDataset, tooltip, formatter}) => {
   const theme = useTheme();
 
   const option = {
-    legend: {
-      show: true,
-      itemGap: 50,
-      icon: 'circle',
-      bottom: 0,
-      textStyle: {  fontSize: 9, fontFamily: 'roboto', fontWeight: 'bold' },
-    },
-    tooltip: { show: false, trigger: 'item', formatter: '{a} <br/>{b}: {c} ({d}%)' },
+    // legend: {
+    //   show: true,
+    //   itemGap: 50,
+    //   icon: 'circle',
+    //   bottom: 0,
+    //   textStyle: {  fontSize: 9, fontFamily: 'roboto', fontWeight: 'bold' },
+    // },
+    tooltip: { show: true, trigger: 'item', formatter: tooltip },
     xAxis: [{ axisLine: { show: false }, splitLine: { show: false } }],
     yAxis: [{ axisLine: { show: false }, splitLine: { show: false } }],
 
     series: [
       {
-        name: 'Task Rate',
+        name: 'Waste Category',
         type: 'pie',
         radius: ['45%', '72.55%'],
         center: ['50%', '50%'],
@@ -39,21 +39,11 @@ const CategoryDoughnut = ({ height, color = [] }) => {
           emphasis: {
             show: true,
             textStyle: { fontSize: '14', fontWeight: 'bold' },
-            formatter: '{b}: {c}% ',
+            formatter: formatter,
           },
         },
         labelLine: { normal: { show: false } },
-        data: [
-          { value: 10, name: 'Covid' },
-          { value: 14, name: 'General' },
-          { value: 10, name: 'Hazardous' },
-          { value: 30, name: 'Metal' },
-          { value: 5, name: 'Paper' },
-          { value: 90, name: 'Plastic' },
-          { value: 8, name: 'Refuse' },
-          { value: 20, name: 'Healthcare' },
-          { value: 21, name: 'Other' },
-        ],
+        data: pieDataset,
         itemStyle: {
           emphasis: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)' },
         },

@@ -2,7 +2,6 @@ import {
   Avatar,
   Box,
   Card,
-  Checkbox,
   Fab,
   Grid,
   Hidden,
@@ -28,12 +27,12 @@ const StarOutline = styled(Fab)((color) => ({
   backgroundColor: `${color} !important`,
 }));
 
-const DateRange = styled(Fab)(({ theme }) => ({
-  marginLeft: 0,
-  boxShadow: 'none',
-  color: 'white !important',
-  background: `${theme.palette.error.main} !important`,
-}));
+// const DateRange = styled(Fab)(({ theme }) => ({
+//   marginLeft: 0,
+//   boxShadow: 'none',
+//   color: 'white !important',
+//   background: `${theme.palette.error.main} !important`,
+// }));
 
 const StyledAvatar = styled(Avatar)(() => ({
   width: '32px !important',

@@ -53,7 +53,7 @@ const ServiceProviderTable = () => {
 	const fetchServiceProviderData = async () => {
 		try {
 		const accessToken = window.localStorage.getItem('accessToken');
-		console.log('accessToken: ' + accessToken);
+		//console.log('accessToken: ' + accessToken);
 		const response = await axios.get('/company', {
 			headers: {
 				'Content-Type': 'application/json',
@@ -62,12 +62,12 @@ const ServiceProviderTable = () => {
 			// withCredentials: true
 		});
 		const { status, companies } = response.data;
-		console.log('companies: ' + companies);
+		//console.log('companies: ' + companies);
 		if (status === "success") {
 			setCompanies(companies);
 		}
 		} catch (error) {
-			console.log('error: ' + error);
+			//console.log('error: ' + error);
 		}
 	};
 

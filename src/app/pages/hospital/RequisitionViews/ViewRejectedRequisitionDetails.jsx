@@ -34,7 +34,7 @@ margin: '30px',
 const ViewRejectedRequisitionDetails = () => {
     const navigate = useNavigate();
 	const  location  = useLocation();
-	console.log('location.requision_id: ' +location.state.requisition.requision_id);
+	//console.log('location.requision_id: ' +location.state.requisition.requision_id);
 
 	const onClick = () => navigate(-1);
 	return (

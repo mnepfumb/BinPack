@@ -90,7 +90,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (accessToken, user) => {
         // 
-        // console.log("login: " + email+ " " + password);
+        // ////console.log("login: " + email+ " " + password);
         // // 
         // const response = await axios.post('/auth', {
         //     email,
@@ -99,10 +99,10 @@ export const AuthProvider = ({ children }) => {
         // const { accessToken, user } = response.data
 
         // 
-        // console.log("response.data: " + response.data);
-        // console.log("accessToken: " + accessToken);
-        // console.log("user: " + user);
-        // console.log("user: " + response.data.user.email);
+        // ////console.log("response.data: " + response.data);
+        // ////console.log("accessToken: " + accessToken);
+        // ////console.log("user: " + user);
+        // ////console.log("user: " + response.data.user.email);
         // 
 
         setSession(accessToken)
@@ -151,12 +151,12 @@ export const AuthProvider = ({ children }) => {
         ; (async () => {
             try {
                 const accessToken = window.localStorage.getItem('accessToken')
-                console.log("isValidToken-accessToken: " + accessToken);
+                ////console.log("isValidToken-accessToken: " + accessToken);
                 
                 if (accessToken && isValidToken(accessToken)) {
                     setSession(accessToken)
 
-                    console.log("isValidToken-accessToken: " + accessToken);
+                    ////console.log("isValidToken-accessToken: " + accessToken);
 
                     const response = await axios.get('/auth/refresh',{
                         headers: { 'Content-Type': 'application/json' },
@@ -164,12 +164,12 @@ export const AuthProvider = ({ children }) => {
                         withCredentials: true
                     });
                     
-                    console.log("response: " + response.data);
+                    ////console.log("response: " + response.data);
 
                     const { user } = response.data
-                    console.log("/refresh: " + user);
+                    ////console.log("/refresh: " + user);
 
-                    console.log("isValidToken-user: " + user);
+                    ////console.log("isValidToken-user: " + user);
 
                     dispatch({
                         type: 'INIT',

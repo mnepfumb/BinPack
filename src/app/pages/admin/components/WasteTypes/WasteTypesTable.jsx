@@ -8,7 +8,9 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  TablePagination,
 } from '@mui/material';
+import { useState } from "react";
 
 const ProductTable = styled(Table)(() => ({
   minWidth: 400,
@@ -24,6 +26,17 @@ const ProductTable = styled(Table)(() => ({
 }));
 
 const WasteTypesTable = () => {
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const handleChangePage = (_, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
   return (
     <Card elevation={3} sx={{ pt: '20px', mb: 3 }}>
@@ -35,19 +48,21 @@ const WasteTypesTable = () => {
                 
               </TableCell>
               <TableCell sx={{ px: 0 }} colSpan={3}>
-                Waste Category
+                Waste Types
               </TableCell>
               <TableCell sx={{ px: 0 }} colSpan={2}>
-                Weekly Waste Mass(kg/PM)
+                Weekly(kg/W)
               </TableCell>
               <TableCell sx={{ px: 0 }} colSpan={2}>
-                Monthly Waste Mass(kg/PM)
+                Monthly(kg/M)
               </TableCell>
             </TableRow>
           </TableHead>
 
           <TableBody>
-            {List.map((product, index) => (
+            {List
+            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            .map((product, index) => (
               <TableRow key={index} hover>
               <TableCell colSpan={0} align="center" sx={{ px: 0, textTransform: 'capitalize' }}>
                 <Icon className="icon" style={{ color: `${product.color}` }}>brightness_1</Icon>
@@ -65,6 +80,18 @@ const WasteTypesTable = () => {
             ))}
           </TableBody>
         </ProductTable>
+        <TablePagination
+          sx={{ px: 2 }}
+          page={page}
+          component="div"
+          rowsPerPage={rowsPerPage}
+          count={List.length}
+          onPageChange={handleChangePage}
+          rowsPerPageOptions={[10]}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+          nextIconButtonProps={{ "aria-label": "Next Page" }}
+          backIconButtonProps={{ "aria-label": "Previous Page" }}
+        />
       </Box>
     </Card>
   );
@@ -122,6 +149,73 @@ const List = [
     weekly: 100,
     monthly: 15,
     color: Fuchsia,
+  },
+  {
+    name: 'Healthcare Risk Waste',
+    weekly: 100,
+    monthly: 15,
+    color: Blue,
+  },
+  {
+    name: 'Other',
+    weekly: 100,
+    monthly: 15,
+    color: Purple,
+  },
+  {
+    name: 'Covid Waste',
+    weekly: 100,
+    monthly: 15,
+    color: Silver,
+  },
+  {
+    name: 'General Waste',
+    weekly: 100,
+    monthly: 15,
+    color: Olive,
+  },
+  {
+    name: 'Hazardous Waste',
+    weekly: 100,
+    monthly: 15,
+    color: Green,
+  },
+  {
+    name: 'Metal Waste',
+    weekly: 100,
+    monthly: 15,
+    color: Aqua,
+  },
+  {
+    name: 'Paper Waste',
+    weekly: 100,
+    monthly: 15,
+    color: Teal,
+  },
+
+  {
+    name: 'Plastic Waste',
+    weekly: 100,
+    monthly: 15,
+    color: Navy,
+  },
+  {
+    name: 'Refuse Waste',
+    weekly: 100,
+    monthly: 15,
+    color: Fuchsia,
+  },
+  {
+    name: 'Healthcare Risk Waste',
+    weekly: 100,
+    monthly: 15,
+    color: Blue,
+  },
+  {
+    name: 'Other',
+    weekly: 100,
+    monthly: 15,
+    color: Purple,
   },
   {
     name: 'Healthcare Risk Waste',

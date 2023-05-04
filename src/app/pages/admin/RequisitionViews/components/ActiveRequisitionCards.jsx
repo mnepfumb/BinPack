@@ -41,28 +41,28 @@ const Title = styled('span')(() => ({
 const AddRequisitionForm = () => {
 	const [requisitions, setRequisitions] = useState([]);
 
-	const fetchRequisitionData = async () => {
-		try {
-			const accessToken = window.localStorage.getItem('accessToken');
-				console.log('accessToken: ' + accessToken);
-			const response = await axios.get('/requisition', {
-			headers: {
-				'Content-Type': 'application/json',
-				Authorization: `Bearer ${accessToken}`,
-			},
-			// withCredentials: true
-			});
-			const { status, requisitions } = response.data;
-			console.log('requisitions: ' + requisitions);
-			if (status === "success") {
-				setRequisitions(requisitions);
-			}
-		} catch (error) {
-			console.log('error: ' + error);
-		}
-	};
 
 	useEffect(() => {
+		const fetchRequisitionData = async () => {
+			try {
+				const accessToken = window.localStorage.getItem('accessToken');
+					//console.log('accessToken: ' + accessToken);
+				const response = await axios.get('/requisition', {
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${accessToken}`,
+				},
+				// withCredentials: true
+				});
+				const { status, requisitions } = response.data;
+				//console.log('requisitions: ' + requisitions);
+				if (status === "success") {
+					setRequisitions(requisitions);
+				}
+			} catch (error) {
+				//console.log('error: ' + error);
+			}
+		};
 		fetchRequisitionData();
 	}, []);
 

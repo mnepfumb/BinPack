@@ -21,7 +21,7 @@ const EditServiceProviderForm = () => {
   const  location  = useLocation();
   // const company = location.state.company;
 
-  console.log(location.state.company);
+  //console.log(location.state.company);
 
 	const [state, setState] = useState({ date: new Date() });
 	const [open, setOpen] = useState(false);
@@ -38,7 +38,7 @@ const EditServiceProviderForm = () => {
 	const handleSubmit = async (event) => {
 		try {
 			const accessToken = window.localStorage.getItem('accessToken')
-			console.log("accessToken: " + accessToken);
+			//console.log("accessToken: " + accessToken);
       var url = '/company/' + location.state.company._id;
 			const response = await axios.patch(url, { 
 				name: event.target.companyName.value,
@@ -56,13 +56,13 @@ const EditServiceProviderForm = () => {
 				},
 				// withCredentials: true
 			})
-			const { status, companies } = response.data;
-			console.log("companies: " + companies);
+			const { status } = response.data;
+			//console.log("companies: " + companies);
 			if (status === 'success') {
 				navigate('/netcare/admin/service-provider');
 			}
 		} catch (error) {
-			console.log("error: " + error);
+			//console.log("error: " + error);
 		}
 	};
 

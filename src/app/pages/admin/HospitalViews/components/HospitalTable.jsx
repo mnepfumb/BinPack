@@ -52,7 +52,7 @@ const HospitalTable = () => {
   const fetchHospitalData = async () => {
     try {
       const accessToken = window.localStorage.getItem('accessToken');
-      console.log('accessToken: ' + accessToken);
+      //console.log('accessToken: ' + accessToken);
       const response = await axios.get('/hospital', {
         headers: {
           'Content-Type': 'application/json',
@@ -61,12 +61,12 @@ const HospitalTable = () => {
         // withCredentials: true
       });
       const { status, hospitals } = response.data;
-      console.log('hospitals: ' + hospitals);
+      //console.log('hospitals: ' + hospitals);
       if (status === "success") {
         setHospitals(hospitals);
       }
     } catch (error) {
-      console.log('error: ' + error);
+      //console.log('error: ' + error);
     }
   };
 

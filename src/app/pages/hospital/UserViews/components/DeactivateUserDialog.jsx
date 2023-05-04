@@ -26,11 +26,11 @@ export default function DeactivateUserDialog({ user }) {
 
 
 	const handleDeactivate = async (event) => {
-    console.log(" user._id: " + user._id);
+    //console.log(" user._id: " + user._id);
 		try {
 			const accessToken = window.localStorage.getItem('accessToken')
       		var url = '/users/' + user._id;
-			console.log("url: " + url);
+			//console.log("url: " + url);
 			
 			const response = await axios.patch(url, { 
 				is_active: false,
@@ -46,7 +46,7 @@ export default function DeactivateUserDialog({ user }) {
         setOpen(false);
 			}
 		} catch (error) {
-			console.log("error: " + error);
+			//console.log("error: " + error);
 		}
 	};
 

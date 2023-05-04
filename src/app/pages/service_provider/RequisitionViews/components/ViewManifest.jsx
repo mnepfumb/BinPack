@@ -36,7 +36,7 @@ const ViewManifest = ({ requisition }) => {
 	const [manifest, setManifest] = useState([]);
 
 
-	console.log("ViewManifest" + requisition.requision_id);
+	//console.log("ViewManifest" + requisition.requision_id);
 
 
 
@@ -44,9 +44,9 @@ const ViewManifest = ({ requisition }) => {
 		const fetchHospitalData = async () => {
 			try {
 			  const accessToken = window.localStorage.getItem('accessToken');
-			  console.log('accessToken: ' + accessToken);
+			  //console.log('accessToken: ' + accessToken);
 			  const url = '/manifest/requisionId?requisition_id='+ requisition.requision_id;
-			  console.log('url: ' + url);
+			  //console.log('url: ' + url);
 	
 			  const response = await axios.get(url, {
 				headers: {
@@ -59,7 +59,7 @@ const ViewManifest = ({ requisition }) => {
 				setManifest(manifests[0]);
 			  }
 			} catch (error) {
-			  console.log('error: ' + error);
+			  //console.log('error: ' + error);
 			}
 		};
 		fetchHospitalData();

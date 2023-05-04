@@ -21,7 +21,7 @@ const EditHospitalForm = () => {
   const  location  = useLocation();
   // const hospital = location.state.hospital;
 
-  console.log(location.state.hospital);
+  //console.log(location.state.hospital);
 
 	const [state, setState] = useState({ date: new Date() });
 	const [open, setOpen] = useState(false);
@@ -38,7 +38,7 @@ const EditHospitalForm = () => {
 	const handleSubmit = async (event) => {
 		try {
 			const accessToken = window.localStorage.getItem('accessToken')
-			console.log("accessToken: " + accessToken);
+			//console.log("accessToken: " + accessToken);
       var url = '/hospital/' + location.state.hospital._id;
 			const response = await axios.patch(url, { 
 				name: event.target.hospitalName.value,
@@ -56,13 +56,13 @@ const EditHospitalForm = () => {
 				},
 				// withCredentials: true
 			})
-			const { status, hospitals } = response.data;
-			console.log("hospitals: " + hospitals);
+			const { status } = response.data;
+			//console.log("hospitals: " + hospitals);
 			if (status === 'success') {
 				navigate('/netcare/admin/hospital');
 			}
 		} catch (error) {
-			console.log("error: " + error);
+			//console.log("error: " + error);
 		}
 	};
 

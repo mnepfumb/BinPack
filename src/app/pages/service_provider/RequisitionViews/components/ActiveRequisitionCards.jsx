@@ -48,8 +48,8 @@ const AddRequisitionForm = () => {
 		const fetchRequisitionData = async () => {
 			const accessToken = window.localStorage.getItem('accessToken');
 			try {
-				console.log('accessToken: ' + accessToken);
-				console.log('user.id: ' + user.id);
+				//console.log('accessToken: ' + accessToken);
+				//console.log('user.id: ' + user.id);
 				var url =  `/users/${user.id}`
 				const response = await axios.get( url , {
 					headers: {
@@ -58,7 +58,7 @@ const AddRequisitionForm = () => {
 					},
 				});
 				const { status, users } = response.data;
-				console.log('users: ' + users.company_id);
+				//console.log('users: ' + users.company_id);
 				if (status === "success") {
 					try {
 						var requisition_url =  '/requisition/hospital?serviceProviderId='+users.company_id
@@ -69,16 +69,16 @@ const AddRequisitionForm = () => {
 							},
 						});
 						const { status, requisitions } = response.data;
-						console.log('requisitions: ' + requisitions);
+						//console.log('requisitions: ' + requisitions);
 						if (status === "success") {
 							setRequisitions(requisitions);
 						}
 					} catch (error) {
-						console.log('error: ' + error);
+						//console.log('error: ' + error);
 					}
 				}
 			} catch (error) {
-				console.log('error: ' + error);
+				//console.log('error: ' + error);
 			}
 		};
 		fetchRequisitionData();

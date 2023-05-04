@@ -37,7 +37,7 @@ const DetailsCard = ({ requisition }) => {
 
 	const onClickGenerateManifest = async () => {
 		try {
-			console.log('requisition.requisition_id: ' + requisition.requision_id);
+			//console.log('requisition.requisition_id: ' + requisition.requision_id);
 			var url = '/manifest';
 			const response = await axios.post( url, {
 				company_name: requisition.serviceProviderName,
@@ -94,7 +94,7 @@ const DetailsCard = ({ requisition }) => {
 				}
 			}
 		} catch (error) {
-			console.log('patch_error2: ' + error);
+			//console.log('patch_error2: ' + error);
 		}
 
 		
