@@ -52,15 +52,36 @@ const DriverAssignCard = ({ requisition }) => {
 	// eslint-disable-next-line no-unused-vars
 	const [options, setOptions] = useState([]);
 	const loading = open && options.length === 0;
-	const [hospitalOptions, setHospitalOptions] = useState([]);
+	const [driverList, setDiverList] = useState([]);
 	const [manifest, setManifests] = useState(null);
 	const [hospitalDropdownValue, setHospitalDropdownValue] = useState(null);
 	const [manifeststatus, setManifeststatus] = useState(null);
 
 
+	// const fetchDriverList = async () => {
+	// 	let userlist = [];
+	// 	const response = await axios.get('/users', {
+	// 		headers: { 
+	// 			'Content-Type': 'application/json', 
+	// 		},
+	// 	});
+	// 	const { users } = response.data;
+	// 	console.log('users: ' + users);
+	// 	users.forEach((user) => {
+	// 		if (user.role === 'driver') {
+	// 			userlist.push({
+	// 				id: user._id,
+	// 				name: user.name +' '+ user.surname
+	// 			})
+	// 		}
+	// 	});
+	// 	setDiverList(userlist);
+	// 	console.log('driverList: ' + driverList);
+	// }
+
 
 	useEffect(() => {
-		// eslint-disable-next-line no-unused-vars
+		console.log('driverList: ' + driverList);
 		let active = true;
 		let userlist = [];
 
@@ -76,59 +97,54 @@ const DriverAssignCard = ({ requisition }) => {
 				},
 			});
 			const { users } = response.data;
+			console.log('users: ' + users);
 			users.forEach((user) => {
-				//console.log('user.role: ' + user.role);
 				if (user.role === 'driver') {
-					//console.log('user: ' + user.name);
 					userlist.push({
 						id: user._id,
 						name: user.name +' '+ user.surname
 					})
 				}
 			});
-			setHospitalOptions(userlist);
-			//console.log('hospitalOptions: ' + hospitalOptions);
+			setDiverList(userlist);
+			console.log('driverList: ' + driverList);
 		})();
 
 		return () => {
 		active = false;
 		};
-	}, [loading, hospitalOptions]);
+	}, [loading, driverList]);
 
-	useEffect(() => {
-		const fetchManifestlData = async () => {
-			try {
-				var manifest_url = '/manifest/requisionId?requisition_id=' + requisition.requision_id;
-				const get_response = await axios.get( manifest_url , {
-					headers: {
-						'Content-Type': 'application/json',
-						Authorization: `Bearer ${accessToken}`,
-					},
-				});
-				const { status, manifests} = get_response.data;
+	// useEffect(() => {
+	// 	const fetchManifestlData = async () => {
+	// 		try {
+	// 			var manifest_url = '/manifest/requisionId?requisition_id=' + requisition.requision_id;
+	// 			const get_response = await axios.get( manifest_url , {
+	// 				headers: {
+	// 					'Content-Type': 'application/json',
+	// 					Authorization: `Bearer ${accessToken}`,
+	// 				},
+	// 			});
+	// 			const { status, manifests} = get_response.data;
 		
-				if (status === 'success') {
-					setManifests(manifests[0])
-				}
-				//console.log('setManifests: ' + manifest._id);
-			} catch (error) {
-			  //console.log('error: ' + error);
-			}
-		  };
-		fetchManifestlData() 
-		if (!open) {
-		setHospitalOptions([]);
-		}
-	}, [manifest._id, open, requisition.requision_id]);
+	// 			if (status === 'success') {
+	// 				setManifests(manifests[0])
+	// 			}
+	// 		} catch (error) {
+	// 		  console.log('error: ' + error);
+	// 		}
+	// 	  };
+	// 	fetchManifestlData() 
+	// 	if (!open) {
+	// 	setDiverList([]);
+	// 	}
+	// }, [manifest._id, open, requisition.requision_id]);
 
 	const handleHospitalDropdownChange = (_, newValue) => {
-		//console.log('newValue');
-		//console.log(newValue);
 		setHospitalDropdownValue(newValue);
 	};
 
 	const handleManifeststatus = (_, newValue) => {
-		//console.log('ManifeststatusnewValue: ' + newValue.label);
 		if (newValue && newValue.inputValue) {
 			setManifeststatus({ label: newValue.inputValue });
 			return;
@@ -156,7 +172,7 @@ const DriverAssignCard = ({ requisition }) => {
 			//   navigate('/netcare/admin/user');
 			}
 		} catch (error) {
-			//console.log('patch_error1: ' + error);
+			console.log('patch_error1: ' + error);
 		}
 
 		try {
@@ -176,15 +192,16 @@ const DriverAssignCard = ({ requisition }) => {
 			//   navigate('/netcare/admin/user');
 			}
 		} catch (error) {
-			//console.log('patch_error2: ' + error);
+			console.log('patch_error2: ' + error);
 		}
 	};
 
-	const DriverCheck = (requisition) => {
+	const DriverCheck =  (requisition) => {
 		//console.log('manifest.driver_id: ' + requisition.driver_id);
+		
 		if (requisition.driver_id !== null || requisition.driver_id !== '') {
 			return <small>A driver has already been assigned to this task.</small>
-		}
+		} 
 	};
 
   	return (
@@ -213,7 +230,7 @@ const DriverAssignCard = ({ requisition }) => {
         <Box ml="-5px">
           <AutoComplete
             open={open}
-            options={hospitalOptions}
+            options={driverList}
             loading={loading}
             onChange={handleHospitalDropdownChange}
             id="driver"

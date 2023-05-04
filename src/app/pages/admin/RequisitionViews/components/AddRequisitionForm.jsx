@@ -139,7 +139,7 @@ const AddRequisitionForm = () => {
         user_id: '',
         expected_qty: event.target.expected_qty.value,
         bin_location: event.target.bin_location.value,
-        assignRequisitions: true,
+        assignRequisitions: false,
         rejectRequisitions: false,
         acceptRequisitions: false,
         createManifest: false,

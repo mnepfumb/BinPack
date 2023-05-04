@@ -111,7 +111,7 @@ const DetailsCard = ({ requisition }) => {
 	return (
 		<CardRoot>
 			<StyledCard elevation={0}>
-				{/* <img src="/assets/images/illustrations/upgrade.svg" alt="upgrade" /> */}
+				{/* <img src="/BinPack/assets/images/illustrations/upgrade.svg" alt="upgrade" /> */}
 				<H3>ID: {requisition.requision_id}</H3>
 				<Divider sx={{ my: 3 }} />
 				<Grid container spacing={3} >

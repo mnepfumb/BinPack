@@ -36,15 +36,15 @@ const ViewRequisitionDetails = () => {
 	//console.log('location.requision_id: ' +location.state.requisition.requision_id);
 
 	const ShowDriverAssignCard = (requisition) => {
-		//console.log('requisition.createManifest: ' + requisition.createManifest);
-		//console.log('requisition.acceptRequisitions: ' + requisition.acceptRequisitions);
+		console.log('requisition.createManifest: ' + requisition.createManifest);
+		console.log('requisition.acceptRequisitions: ' + requisition.acceptRequisitions);
 		if (requisition.acceptRequisitions) {
-			return <DriverAssignCard requisition={requisition}/>
-		}
+			return <DriverAssignCard requisition={requisition}/>;
+		} 
 	}
 
 	const ShowViewManifest = (requisition) => {
-		//console.log('requisition.createManifest: ' + requisition.createManifest);
+		console.log('requisition.createManifest: ' + requisition.createManifest);
 		if (requisition.createManifest) {
 			return <ViewManifest requisition={requisition}/>;
 		}
@@ -58,7 +58,7 @@ const ViewRequisitionDetails = () => {
 						<Title>Requisition Information</Title>
 					</CardHeader>
 				
-					<Grid container spacing={3}>
+					<Grid item container spacing={3}>
 						<Grid item lg={6} md={6} sm={12} xs={12}>
 							<DetailsCard requisition={location.state.requisition}/>
 						</Grid>

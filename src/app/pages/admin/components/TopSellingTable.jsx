@@ -110,56 +110,56 @@ const TopSellingTable = () => {
 
 const productList = [
   {
-    imgUrl: '/assets/images/products/headphone-2.jpg',
+    imgUrl: '/BinPack/assets/images/products/headphone-2.jpg',
     name: 'Covid Waste',
     price: 100,
     available: 15,
   },
   {
-    imgUrl: '/assets/images/products/headphone-3.jpg',
+    imgUrl: '/BinPack/assets/images/products/headphone-3.jpg',
     name: 'General Waste',
     price: 1500,
     available: 30,
   },
   {
-    imgUrl: '/assets/images/products/iphone-2.jpg',
+    imgUrl: '/BinPack/assets/images/products/iphone-2.jpg',
     name: 'Hazardous Waste',
     price: 1900,
     available: 35,
   },
   {
-    imgUrl: '/assets/images/products/iphone-1.jpg',
+    imgUrl: '/BinPack/assets/images/products/iphone-1.jpg',
     name: 'Metal Waste',
     price: 100,
     available: 0,
   },
   {
-    imgUrl: '/assets/images/products/headphone-3.jpg',
+    imgUrl: '/BinPack/assets/images/products/headphone-3.jpg',
     name: 'Paper Waste',
     price: 1190,
     available: 5,
   },
 
   {
-    imgUrl: '/assets/images/products/headphone-3.jpg',
+    imgUrl: '/BinPack/assets/images/products/headphone-3.jpg',
     name: 'Plastic Waste',
     price: 1500,
     available: 30,
   },
   {
-    imgUrl: '/assets/images/products/iphone-2.jpg',
+    imgUrl: '/BinPack/assets/images/products/iphone-2.jpg',
     name: 'Refuse Waste',
     price: 1900,
     available: 35,
   },
   {
-    imgUrl: '/assets/images/products/iphone-1.jpg',
+    imgUrl: '/BinPack/assets/images/products/iphone-1.jpg',
     name: 'Healthcare Risk Waste',
     price: 100,
     available: 0,
   },
   {
-    imgUrl: '/assets/images/products/headphone-3.jpg',
+    imgUrl: '/BinPack/assets/images/products/headphone-3.jpg',
     name: 'Other',
     price: 1190,
     available: 5,

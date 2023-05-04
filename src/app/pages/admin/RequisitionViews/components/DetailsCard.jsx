@@ -1,4 +1,4 @@
-import { Box, Card, styled, Grid, Divider } from '@mui/material';
+import { Box, Card, styled, Grid, Divider, Button } from '@mui/material';
 import { convertHexToRGB } from 'app/utils/utils';
 import { H3, H4 } from 'app/components/Typography';
 import axios from 'app/api/axios';
@@ -50,7 +50,7 @@ const DetailsCard = ({ requisition }) => {
 			//   navigate('/netcare/admin/user');
 			}
 		} catch (error) {
-			//console.log('patch_error2: ' + error);
+			console.log('patch_error1: ' + error);
 		}
 	}
 	const onClickReject = async () => {
@@ -72,11 +72,11 @@ const DetailsCard = ({ requisition }) => {
 			//   navigate('/netcare/admin/user');
 			}
 		} catch (error) {
-			//console.log('patch_error2: ' + error);
+			console.log('patch_error2: ' + error);
 		}
 	}
 
-	const Button = (requisition) => {
+	const ActionButton = (requisition) => {
 		if (!requisition.acceptRequisitions) {
 			return (
 				<>
@@ -104,16 +104,16 @@ const DetailsCard = ({ requisition }) => {
 					</Grid>
 				</>
 			);
-		}
+		} 
 	}
 
 	return (
 		<CardRoot>
 			<StyledCard elevation={0}>
-				{/* <img src="/assets/images/illustrations/upgrade.svg" alt="upgrade" /> */}
+				{/* <img src="/BinPack/assets/images/illustrations/upgrade.svg" alt="upgrade" /> */}
 				<H3>ID: {requisition.requision_id}</H3>
 				<Divider sx={{ my: 3 }} />
-				<Grid container spacing={3} >
+				<Grid item container spacing={3} >
 					
 					<Grid item lg={6} md={3} sm={12} xs={12}>
 					<StyledCard2>
@@ -139,9 +139,10 @@ const DetailsCard = ({ requisition }) => {
 						
 					</Grid>
 					<Divider sx={{ my: 3 }} />
-					{Button(requisition)}
+					{ActionButton(requisition)}
 					
 				</Grid>
+				
 			</StyledCard>
 		</CardRoot>
 	);

@@ -76,7 +76,7 @@ const JwtRegister = () => {
               <img
                 width="100%"
                 alt="Register"
-                src="/assets/images/illustrations/posting_photo.svg"
+                src="/BinPack/assets/images/illustrations/posting_photo.svg"
               />
             </ContentBox>
           </Grid>
