@@ -45,7 +45,8 @@ const ViewRequisitionDetails = () => {
 
 	const ShowViewManifest = (requisition) => {
 		console.log('requisition.createManifest: ' + requisition.createManifest);
-		if (requisition.createManifest) {
+		// if (requisition.createManifest) {
+		if (requisition.driver_id !== '') {
 			return <ViewManifest requisition={requisition}/>;
 		}
 	}
