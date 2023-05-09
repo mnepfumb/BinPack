@@ -13,6 +13,7 @@ import React from 'react';
 import ViewManifestTable from './ViewManifestTable';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'app/api/axios';
+import { convertHexToRGB } from 'app/utils/utils';
 
 const CardRoot = styled(Card)(({ theme }) => ({
 	marginBottom: '24px',
@@ -28,6 +29,15 @@ const CardHeader = styled(Box)(() => ({
 	alignItems: 'center',
 	justifyContent: 'space-between',
 }));
+
+const StyledCard = styled(Card)(({ theme }) => ({
+	boxShadow: 'none',
+	textAlign: 'left',
+	position: 'relative',
+	padding: '24px !important',
+	background: `rgb(${convertHexToRGB(theme.palette.primary.main)}, 0.15) !important`,
+	[theme.breakpoints.down('sm')]: { padding: '16px !important' },
+  }));
 
 const Title = styled('span')(() => ({
 	fontSize: '1rem',
@@ -70,6 +80,28 @@ const ViewManifest = ({ requisition }) => {
 		};
 		fetchHospitalData();
 	}, [requisition.requision_id]);
+  
+	  const IcidentCard = (manifest) => {
+		return (
+			<>
+			<StyledCard elevation={0}>
+				<H1>Incident    <Title>Details</Title></H1>
+				<Grid container spacing={3}>
+					<Grid item lg={6} md={6} sm={12} xs={12}>
+					<H5>Incident Type:  <Small style={{ marginLeft: '2.5rem' }}>{manifest.incident_type}</Small></H5>
+					</Grid>
+					<Grid item lg={6} md={6} sm={12} xs={12} style={{alignSelf: 'flex-end'}} >
+						<Box ml="-5px" style={{textAlign: 'right'}}>
+							<H5>Incident Notes:  </H5>
+							<Small style={{ marginLeft: '2.5rem' }}>{manifest.incident_notes}</Small>
+						</Box>
+					</Grid>
+				</Grid>
+			</StyledCard>
+				<Divider sx={{ my: 5 }} />
+			</>
+		);
+	}
 
     const onClick = () => navigate(-1);
 
@@ -122,7 +154,7 @@ const ViewManifest = ({ requisition }) => {
 			
 			<Divider sx={{ my: 5 }} />
 
-			{/* <ViewManifestTable manifest={manifest}/> */}
+			<ViewManifestTable manifest={manifest}/>
 
 			<Divider sx={{ my: 5 }} />
 			
@@ -130,8 +162,10 @@ const ViewManifest = ({ requisition }) => {
 				<H5>Total Mass (Kg):  <Small style={{ marginLeft: '2.5rem' }}>{manifest.waste_mass}</Small></H5>
 				<H5>Tonnage Charged:  <Small style={{ marginLeft: '2.5rem' }}>{manifest.waste_mass}</Small></H5>
 			</Box>
-
-			<Divider sx={{ my: 5 }} />
+  
+			  <Divider sx={{ my: 5 }} />
+  
+			  {IcidentCard(manifest)}
 
 			<Link state={{ manifest: manifest }} to={{ pathname: '/netcare/admin/edit-manifest-details', state: manifest }}>
 				<Button color="primary" variant="contained" >
@@ -144,3 +178,5 @@ const ViewManifest = ({ requisition }) => {
 };
 
 export default ViewManifest;
+
+
