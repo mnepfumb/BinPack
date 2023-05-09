@@ -1,42 +1,44 @@
-import { styled } from '@mui/material';
 import { Fragment } from 'react';
 import React from 'react';
-import GoogleMapReact from 'google-map-react';
+import {  useState } from "react";
+import {
+  useJsApiLoader,
+  GoogleMap,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
 
-const ContentBox = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' },
-}));
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const center = {
+	lat: -26.2041,
+	lng: 28.0473
+};
 
 const TrackingAnalytics = () => {
 
-	const defaultProps = {
-		center: {
-		  lat: -26.2041,
-		  lng: 28.0473
-		},
-		zoom: 8
-	  };
-	// render() {
-		return (
-			// Important! Always set the container height explicitly
-			<div style={{ height: '100vh', width: '100%' }}>
-			  <GoogleMapReact
-				bootstrapURLKeys={{ key: "AIzaSyCQvYXL_fWTxQddv4sHBGDuC8ICJC6SIXE" }}
-				defaultCenter={defaultProps.center}
-				defaultZoom={defaultProps.zoom}
-			  >
-				<AnyReactComponent
-				  lat={-26.2041}
-				  lng={28.0473}
-				  text=""
-				/>
-			  </GoogleMapReact>
-			</div>
-		);
-	// }
+	const { isLoaded } = useJsApiLoader({
+	  id: "google-map-script",
+	  googleMapsApiKey: "AIzaSyCQvYXL_fWTxQddv4sHBGDuC8ICJC6SIXE",
+	});
+
+	return isLoaded ? (
+	  <>
+		<GoogleMap
+		  center={center}
+		  zoom={8}
+		  mapContainerStyle={{ width: "100%", height: "100vh" }}
+		  options={{
+			zoomControl: false,
+			streetViewControl: false,
+			mapTypeControl: false,
+			fullscreenControl: false,
+		  }}
+		>
+		</GoogleMap>
+	  </>
+	) : (
+	  <></>
+	);
 };
 
 export default TrackingAnalytics;

@@ -7,6 +7,7 @@ import { Fragment } from 'react';
 import SimpleCard from 'app/components/SimpleCard';
 import DriverAssignCard from './components/DriverAssignCard';
 import DetailsCard from './components/DetailsCard';
+// import ViewManifest from '../../driver/RequisitionViews/components/ViewManifest';
 import ViewManifest from './components/ViewManifest';
 import { useLocation } from 'react-router-dom';
 
@@ -48,7 +49,8 @@ const ViewRequisitionDetails = () => {
 		if (requisition.createManifest) {
 		// if (requisition.driver_id !== '') {
 			return <ViewManifest requisition={requisition}/>;
-		}
+		} 
+		return ;
 	}
 
 	return (
@@ -68,6 +70,7 @@ const ViewRequisitionDetails = () => {
 						</Grid>
 					</Grid>
 					{ShowViewManifest(location.state.requisition)}
+					{/* <ViewManifest requisition={location.state.requisition}/> */}
 				</SimpleCard>
 			</ContentBox>
 		</Fragment>

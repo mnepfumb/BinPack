@@ -50,7 +50,7 @@ const ViewManifest = ({ requisition }) => {
 			const accessToken = window.localStorage.getItem('accessToken');
 			//console.log('accessToken: ' + accessToken);
 			const url = '/manifest/requisionId?requisition_id='+ requisition.requision_id;
-			//console.log('url: ' + url);
+			console.log('url: ' + url);
 
 			const response = await axios.get(url, {
 				headers: {
@@ -59,6 +59,8 @@ const ViewManifest = ({ requisition }) => {
 				},
 			});
 			const { status, manifests } = response.data;
+			console.log('manifests: ' + manifests[0]);
+			
 			if (status === 'success') {
 				setManifest(manifests[0]);
 			}
@@ -120,7 +122,7 @@ const ViewManifest = ({ requisition }) => {
 			
 			<Divider sx={{ my: 5 }} />
 
-			<ViewManifestTable manifest={manifest}/>
+			{/* <ViewManifestTable manifest={manifest}/> */}
 
 			<Divider sx={{ my: 5 }} />
 			

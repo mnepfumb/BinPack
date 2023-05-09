@@ -37,6 +37,18 @@ const ViewRequisitionDetails = () => {
 	const  location  = useLocation();
 	//console.log('location.requision_id: ' +location.state.requisition.requision_id);
 
+	// useEffect(() => {
+	// 	const getGeoLocation = () => {
+	// 		navigator.geolocation.getCurrentPosition((position) => {
+	// 			console.log(position);
+	// 			const { latitude, longitude } = position.coords
+	// 			console.log(latitude);
+	// 			console.log(longitude);
+	// 		})
+	// 	}
+	// 	getGeoLocation()
+	// }, []);
+
 	const ShowViewManifest = (requisition) => {
 		//console.log('requisition.createManifest: ' + requisition.createManifest);
 		if (requisition.createManifest) {

@@ -3,6 +3,7 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import {
   Button,
+  IconButton,
   Table,
   TableBody,
   TableCell,
@@ -77,6 +78,8 @@ const EditManifest = () => {
         manifest.state.manifest.time_out
     )
     const [manifeststatus, setManifeststatus] = React.useState(null);
+    const [treatmentstatus, setTreatmentstatus] = React.useState(null);
+    const [wasteType, setWasteType] = React.useState(null);
     const [wastestatus, setWastestatus] = React.useState(null);
 
     const handleManifeststatus = (_, newValue) => {
@@ -85,6 +88,22 @@ const EditManifest = () => {
             return;
         }
         setManifeststatus(newValue);
+    };
+
+    const handleTreatmentstatus = (_, newValue) => {
+        if (newValue && newValue.inputValue) {
+            setTreatmentstatus({ label: newValue.inputValue });
+            return;
+        }
+        setTreatmentstatus(newValue);
+    };
+
+    const handleWasteType = (_, newValue) => {
+        if (newValue && newValue.inputValue) {
+            setWasteType({ label: newValue.inputValue });
+            return;
+        }
+        setWasteType(newValue);
     };
 
     const handleWastestatus = (_, newValue) => {
@@ -136,7 +155,7 @@ const EditManifest = () => {
 				operator_out: event.target.operator_out.value,
 				landfill: event.target.landfill.value,
 				notes: event.target.notes.value,
-				wasteType: event.target.wasteType.value,
+				wasteType: wasteType,
 				treatment: event.target.treatment.value,
 				bin_location: event.target.bin_location.value,
 				bin_qty: event.target.bin_qty.value,
@@ -184,7 +203,7 @@ const EditManifest = () => {
 		operator_out = manifest.state.manifest.operator_out,
 		landfill = manifest.state.manifest.landfill,
 		notes = manifest.state.manifest.notes,
-		wasteType = manifest.state.manifest.wasteType,
+		// wasteType = manifest.state.manifest.wasteType,
 		treatment = manifest.state.manifest.treatment,
         bin_location = manifest.state.manifest.bin_location,
         bin_qty = manifest.state.manifest.bin_qty,
@@ -359,11 +378,10 @@ const EditManifest = () => {
                                 <TableBody border-spacing="0 15px">
                                     {/* {productList.map((product, index) => ( */}
                                     <TableRow  hover>
-
                                         <TableCell colSpan={2} align="left" sx={{ px: 0, textTransform: 'capitalize' }}>
-                                        <Box display="flex" alignItems="center">
+                                            <Box  alignItems="left">
                                             {/* <Paragraph sx={{ m: 0, ml: 0 }}>{manifest.wasteType}</Paragraph> */}
-                                            <TextField
+                                            {/* <TextField
                                                 type="text"
                                                 name="wasteType"
                                                 label={"WasteType"}
@@ -371,6 +389,16 @@ const EditManifest = () => {
                                                 value={wasteType || ""}
                                                 // validators={["required",  "minStringLength:1", "maxStringLength: 100"]}
                                                 // errorMessages={["this field is required", "this field requires 100 characters", "this field requires 100 characters"]}
+                                            /> */}
+
+                                            <AutoComplete
+                                                value={wasteType}
+                                                options={waste_Type}
+                                                onChange={handleTreatmentstatus}
+                                                getOptionLabel={(option) => option.label}
+                                                renderInput={(params) => (
+                                                <TextField {...params} label="WasteType" variant="outlined"  />
+                                                )}
                                             />
                                         </Box>
                                         </TableCell>
@@ -470,6 +498,20 @@ const EditManifest = () => {
                             </Box>
                         </Card>
 
+                        <Divider sx={{ my: 5 }} />
+                        
+                        <input accept="image/*" className="input" id="icon-button-file" type="file" />
+                        <label htmlFor="icon-button-file">
+                        <IconButton
+                            color="primary"
+                            component="span"
+                            className="button"
+                            aria-label="Upload picture"
+                        >
+                            <Icon>cloud_upload</Icon>
+                            Upload Documents
+                        </IconButton>
+                        </label>
 
                         <Divider sx={{ my: 5 }} />
                         
@@ -535,10 +577,32 @@ const manifest_status = [
     { label: 'Sorting Facility' },
     { label: 'Handed Over' },
     { label: 'Waste Disposed' },
-  ];
-  const waste_status = [
+];
+const waste_status = [
       { label: 'Waste Disposed' },
       { label: 'Waste Diverted' },
     //   { label: 'Waste Collected' },
-    ];
+];
+const treatment_status = [
+    { label: 'Awaiting Acceptance' },
+    { label: 'Assigned to Driver' },
+    { label: 'Waste Collected' },
+    { label: 'En Route to Sorting' },
+    { label: 'En Route to Landfill' },
+    { label: 'En Route to Scrapyard/Recycling Deport' },
+    { label: 'Sorting Facility' },
+    { label: 'Handed Over' },
+    { label: 'Waste Disposed' },
+];
+const waste_Type = [
+    { label: 'Covid Waste' },
+    { label: 'General Waste' },
+    { label: 'Hazardous Waste' },
+    { label: 'Metal Waste' },
+    { label: 'Paper Waste' },
+    { label: 'Plastic Waste' },
+    { label: 'Refuse Waste' },
+    { label: 'Healthcare Risk Waste' },
+    { label: 'Other' },
+];
 export default EditManifest;
