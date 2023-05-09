@@ -2,7 +2,7 @@ export const service_provider_navigations = [
   { label: 'DASHBOARDS', type: 'label' },
   { name: 'Dashboard', path: '/netcare/dashboard/service_provider', icon: 'dashboard' },
   
-  { label: 'REQUISITIONS', type: 'label' },
+  { label: 'WASTE MANAGEMENT', type: 'label' },
   { name: 'Active Requisitions', path: '/netcare/service_provider/requisitions', icon: 'dashboard' },
   { name: 'Completed Requisitions', path: '/netcare/service_provider/completed_requisitions', icon: 'dashboard' },
 
