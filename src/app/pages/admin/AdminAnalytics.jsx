@@ -35,39 +35,51 @@ const table_init = [
 	[{color: '#FF00FF', category: 'Healthcare Risk Waste', wastePerWeek: '0', wastePerMonth: '0'}],
 	[{color: '#800080', category: 'Other', wastePerWeek: '0', wastePerMonth: '0'}]
 ]
+
+const doughnut_init = [
+	{ value: 10, name: 'Covid Waste' },
+	{ value: 14, name: 'General Waste' },
+	{ value: 10, name: 'Hazardous Waste' },
+	{ value: 30, name: 'Metal Waste' },
+	{ value: 5, name: 'Paper Waste' },
+	{ value: 90, name: 'Plastic Waste' },
+	{ value: 8, name: 'Refuse Waste' },
+	{ value: 20, name: 'Healthcare Risk Waste' },
+	{ value: 21, name: 'Other' },
+]
 const AdminAnalytics = () => {
 	const [dateBarDataset, setDateBarDataset] = useState([]);
 
-	const [pieReqDataset, setPieReqDataset] = useState([]);
-	const [pieMassDataset, setPieMassDataset] = useState([]);
+	const [pieReqDataset, setPieReqDataset] = useState(doughnut_init);
+	const [pieMassDataset, setPieMassDataset] = useState(doughnut_init);
 
 	const [tableReqDataset, setTableReqDataset] = useState([table_init]);
 	const [tableMassDataset, setTableMassDataset] = useState([table_init]);
 	
 	const [ RequisitionsDataset, setRequisitionsDataset ] = useState([
 		{
-			covid_waste: [ 0 ],
-			general_waste: [ 0 ],
+			covid_waste: [ 10 ],
+			general_waste: [ 50 ],
 			hazardous_waste: [ 0 ],
-			metal_waste: [ 0 ],
-			paper_waste: [ 0 ],
-			plastic_waste: [ 0 ],
-			refuse_waste: [ 0 ],
-			healthcare_waste: [ 0 ],
-			other: [ 0 ]
+			metal_waste: [ 9 ],
+			paper_waste: [ 50 ],
+			plastic_waste: [ 10 ],
+			refuse_waste: [ 60 ],
+			healthcare_waste: [ 110 ],
+			other: [ 230 ]
 		}
 	]);
 	const [ MassDataset, setMasssDataset ] = useState([
 		{
-			covid_waste: [ 0.0 ],
-			general_waste: [ 0.0 ],
+			covid_waste: [ 10.0 ],
+			general_waste: [ 50.0 ],
 			hazardous_waste: [ 0.0 ],
-			metal_waste: [ 0.0 ],
-			paper_waste: [ 0.0 ],
-			plastic_waste: [ 0.0 ],
-			refuse_waste: [ 0.0 ],
-			healthcare_waste: [ 0.0 ],
-			other: [ 0.0 ]
+			metal_waste: [ 9.0 ],
+			paper_waste: [ 50.0 ],
+			plastic_waste: [ 10.0 ],
+			refuse_waste: [ 60.0 ],
+			healthcare_waste: [ 110.0 ],
+			other: [ 230.0 ]
 		}
 	]);
 
@@ -104,9 +116,9 @@ const AdminAnalytics = () => {
 				const { status, Requisitions, Mass, date_data } = response.data;
 				console.log(Requisitions[0])
 				if (status === "success") {
-					setDateBarDataset(date_data);
-					setRequisitionsDataset(Requisitions);
-					setMasssDataset(Mass)
+					// setDateBarDataset(date_data);
+					// setRequisitionsDataset(Requisitions);
+					// setMasssDataset(Mass)
 				}
 				
 			} catch (error) {
@@ -124,8 +136,8 @@ const AdminAnalytics = () => {
 				});
 				const { status, pie_req_data, pie_mass_data } = response.data;
 				if (status === "success") {
-					setPieReqDataset(pie_req_data)
-					setPieMassDataset(pie_mass_data)
+					// setPieReqDataset(pie_req_data)
+					// setPieMassDataset(pie_mass_data)
 				}
 				
 			} catch (error) {
