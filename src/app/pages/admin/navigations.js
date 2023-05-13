@@ -6,8 +6,9 @@ export const admin_navigations = [
   { name: 'Smart Bins', path: '/netcare/admin/smart-bins-dashboard', icon: 'dashboard' },
   { name: 'Tracking', path: '/netcare/admin/tracking-dashboard', icon: 'dashboard' },
    
-  { label: 'WASTE MANAGEMENT', type: 'label' },
+  { label: 'MANAGE WASTE', type: 'label' },
   { name: 'Requisitions', path: '/netcare/admin/requisitions', icon: 'dashboard' },
+  { name: 'Smart Bins', path: '/netcare/admin/smart-bins', icon: 'dashboard' },
 
   { label: 'USERS', type: 'label' },
   { name: 'Users', path: '/netcare/admin/user', icon: 'group' },

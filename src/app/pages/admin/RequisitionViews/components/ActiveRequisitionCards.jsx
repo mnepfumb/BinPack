@@ -85,7 +85,7 @@ const AddRequisitionForm = () => {
 	}
 
   	return (
-		<Grid item container  sx={{ mb: '24px', mt: 2 }} sm={12}  style={{ gap: 15 }}>
+		<Grid item container  rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 4 }}>
 			{requisitions.map((requisition, index) => (
 				<Grid item  xs={12} md={3} key={index}>
 					<Link state={{ requisition: requisition }} to={{ pathname: '/netcare/admin/view-requisitions-details', state: requisition }}>

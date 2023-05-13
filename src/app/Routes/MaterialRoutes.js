@@ -42,6 +42,11 @@ const User = Loadable(lazy(() => import('../pages/admin/UserViews/Users')));
 const UserEditForm = Loadable(lazy(() => import('../pages/admin/UserViews/UsersEditForm')));
 const UserAddForm = Loadable(lazy(() => import('../pages/admin/UserViews/UsersAddForm')));
 
+const SmartBins = Loadable(lazy(() => import('../pages/admin/SmartBins/ActiveSmartBins')));
+const SmartBinsAddForm = Loadable(lazy(() => import('../pages/admin/SmartBins/SmartBinsAddForm')));
+const ViewSmartBinsDetails = Loadable(lazy(() => import('../pages/admin/SmartBins/ViewSmartBinsDetails')));
+// const EditManifest = Loadable(lazy(() => import('../pages/admin/RequisitionViews/components/EditManifest')));
+
 //11111111111111
 
 const Hospital_Requisitions = Loadable(lazy(() => import('../pages/hospital/RequisitionViews/ActiveRequisitions')));
@@ -92,11 +97,6 @@ const materialRoutes = [
     auth: authRoles.admin
   },
   {
-    path: '/netcare/admin/smart-bins-dashboard',
-    element: <SmartBinsAnalytics />,
-    auth: authRoles.admin
-  },
-  {
     path: '/netcare/admin/ESG-dashboard',
     element: <ESGReportingAnalytics />,
     auth: authRoles.admin
@@ -124,6 +124,26 @@ const materialRoutes = [
   {
     path: '/netcare/admin/edit-manifest-details',
     element: <EditManifest />,
+    auth: authRoles.admin
+  },
+  {
+    path: '/netcare/admin/smart-bins-dashboard',
+    element: <SmartBinsAnalytics />,
+    auth: authRoles.admin
+  },
+  {
+    path: '/netcare/admin/smart-bins',
+    element: <SmartBins />,
+    auth: authRoles.admin
+  },
+  {
+    path: '/netcare/admin/smart-bins-form',
+    element: <SmartBinsAddForm />,
+    auth: authRoles.admin
+  },
+  {
+    path: '/netcare/admin/view-smart-bins-details',
+    element: <ViewSmartBinsDetails />,
     auth: authRoles.admin
   },
    

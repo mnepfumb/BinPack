@@ -12,7 +12,7 @@ const WasteTypesDoughnut = ({ height, color = [] }) => {
     //   bottom: 0,
     //   textStyle: {  fontSize: 9, fontFamily: 'roboto', fontWeight: 'bold' },
     // },
-    tooltip: { show: true, trigger: 'item', formatter: '{a} <br/>{b}: {c} ({d}%)' },
+    tooltip: { show: true, trigger: 'item', formatter: '{a} <br/>{b}: {c}kg ({d}%)' },
     xAxis: [{ axisLine: { show: false }, splitLine: { show: false } }],
     yAxis: [{ axisLine: { show: false }, splitLine: { show: false } }],
 
@@ -39,7 +39,7 @@ const WasteTypesDoughnut = ({ height, color = [] }) => {
           emphasis: {
             show: true,
             textStyle: { fontSize: '14', fontWeight: 'bold' },
-            formatter: '{b}: {c}% ',
+            formatter: '{b}: {c}kg ',
           },
         },
         labelLine: { normal: { show: false } },

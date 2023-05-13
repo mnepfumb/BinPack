@@ -2,7 +2,7 @@ export const hospital_navigations = [
   { label: 'DASHBOARDS', type: 'label' },
   { name: 'Dashboard', path: '/netcare/hospital/dashboard', icon: 'dashboard' },
   
-  { label: 'WASTE MANAGEMENT', type: 'label' },
+  { label: 'MANAGE WASTE', type: 'label' },
   { name: 'Active Requisitions', path: '/netcare/hospital/requisitions', icon: 'dashboard' },
   { name: 'Completed Requisitions', path: '/netcare/hospital/completed-requisitions', icon: 'dashboard' },
   { name: 'Rejected Requisitions', path: '/netcare/hospital/rejected-requisitions', icon: 'dashboard' },

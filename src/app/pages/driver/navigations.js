@@ -2,7 +2,7 @@ export const driver_navigations = [
   { label: 'DASHBOARDS', type: 'label' },
   { name: 'Dashboard', path: '/netcare/driver/dashboard', icon: 'dashboard' },
   
-  { label: 'WASTE MANAGEMENT', type: 'label' },
+  { label: 'MANAGE WASTE', type: 'label' },
   { name: 'New Requisitions', path: '/netcare/driver/requisitions', icon: 'dashboard' },
   { name: 'Completed Requisitions', path: '/netcare/driver/completed_requisitions', icon: 'dashboard' },
 
