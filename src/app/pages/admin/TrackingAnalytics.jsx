@@ -7,6 +7,7 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
+import { CircularProgress } from '@mui/material'
 
 
 const center = {
@@ -33,11 +34,12 @@ const TrackingAnalytics = () => {
 			mapTypeControl: false,
 			fullscreenControl: false,
 		  }}
+		  
 		>
 		</GoogleMap>
 	  </>
 	) : (
-	  <></>
+		<CircularProgress className="progress" />
 	);
 };
 
