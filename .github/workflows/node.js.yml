@@ -11,7 +11,9 @@ on:
 
 jobs:
   build:
-
+    env:
+        REACT_APP_API_BASE_URL: ${{REACT_APP_API_BASE_URL}}
+        
     runs-on: ubuntu-latest
 
     strategy:
