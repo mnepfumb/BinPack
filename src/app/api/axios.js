@@ -1,15 +1,13 @@
 import axios from 'axios';
-// const BASE_URL = 'http://localhost:3500';
-const BASE_URL = 'https://binpackapi.azurewebsites.net';
-// https://binpackapi.azurewebsites.net
 
 export default axios.create({
-    baseURL: BASE_URL, 
+    
+    baseURL: process.env.REACT_APP_API_BASE_URL, 
     headers: { 'Content-Type': 'application/json' },
 });
 
 export const axiosPrivate = axios.create({
-    baseURL: BASE_URL, 
+    baseURL: process.env.REACT_APP_API_BASE_URL, 
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true
 });
