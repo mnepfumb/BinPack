@@ -1,8 +1,10 @@
-import { styled,  Box, Icon, Fab } from '@mui/material';
+import { styled,  Box, 
+  // Icon, Fab 
+} from '@mui/material';
 import { Fragment } from 'react';
 import ActiveSmartBinsCards from './components/ActiveSmartBinsCards';
 import SimpleCard from 'app/components/SimpleCard';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const ContentBox = styled('div')(({ theme }) => ({
   margin: '30px',
@@ -26,7 +28,7 @@ const CardHeader = styled(Box)(() => ({
 }));
 
 const SmartBins = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const onClick = () => navigate('/netcare/admin/add-requisitions');
 
   return (

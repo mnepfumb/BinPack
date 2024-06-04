@@ -53,7 +53,7 @@ const DriverAssignCard = ({ requisition }) => {
 	const [options, setOptions] = useState([]);
 	const loading = open && options.length === 0;
 	const [driverList, setDiverList] = useState([]);
-	const [manifest, setManifests] = useState(null);
+	const [manifest, ] = useState(null);
 	const [hospitalDropdownValue, setHospitalDropdownValue] = useState(null);
 	const [manifeststatus, setManifeststatus] = useState(null);
 
@@ -82,7 +82,7 @@ const DriverAssignCard = ({ requisition }) => {
 
 	useEffect(() => {
 		console.log('driverList: ' + driverList);
-		let active = true;
+		// let active = true;
 		let userlist = [];
 
 		if (!loading) {
@@ -109,10 +109,10 @@ const DriverAssignCard = ({ requisition }) => {
 			setDiverList(userlist);
 			console.log('driverList: ' + driverList);
 		})();
-
-		return () => {
-		active = false;
-		};
+		
+		// return () => {
+		// active = false;
+		// };
 	}, [loading, driverList]);
 
 	// useEffect(() => {

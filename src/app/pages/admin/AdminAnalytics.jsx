@@ -48,15 +48,15 @@ const doughnut_init = [
 	{ value: 21, name: 'Other' },
 ]
 const AdminAnalytics = () => {
-	const [dateBarDataset, setDateBarDataset] = useState([]);
+	const [dateBarDataset, ] = useState([]);
 
-	const [pieReqDataset, setPieReqDataset] = useState(doughnut_init);
-	const [pieMassDataset, setPieMassDataset] = useState(doughnut_init);
+	const [pieReqDataset, ] = useState(doughnut_init);
+	const [pieMassDataset, ] = useState(doughnut_init);
 
 	const [tableReqDataset, setTableReqDataset] = useState([table_init]);
 	const [tableMassDataset, setTableMassDataset] = useState([table_init]);
 	
-	const [ RequisitionsDataset, setRequisitionsDataset ] = useState([
+	const [ RequisitionsDataset,  ] = useState([
 		{
 			covid_waste: [ 10 ],
 			general_waste: [ 50 ],
@@ -69,7 +69,7 @@ const AdminAnalytics = () => {
 			other: [ 230 ]
 		}
 	]);
-	const [ MassDataset, setMasssDataset ] = useState([
+	const [ MassDataset,  ] = useState([
 		{
 			covid_waste: [ 10.0 ],
 			general_waste: [ 50.0 ],
@@ -113,7 +113,7 @@ const AdminAnalytics = () => {
 						Authorization: `Bearer ${accessToken}`,
 					},
 				});
-				const { status, Requisitions, Mass, date_data } = response.data;
+				const { status, Requisitions } = response.data;
 				console.log(Requisitions[0])
 				if (status === "success") {
 					// setDateBarDataset(date_data);
@@ -134,7 +134,7 @@ const AdminAnalytics = () => {
 						Authorization: `Bearer ${accessToken}`,
 					},
 				});
-				const { status, pie_req_data, pie_mass_data } = response.data;
+				const { status } = response.data;
 				if (status === "success") {
 					// setPieReqDataset(pie_req_data)
 					// setPieMassDataset(pie_mass_data)

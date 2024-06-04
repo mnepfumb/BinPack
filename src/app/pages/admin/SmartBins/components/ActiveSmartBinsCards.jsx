@@ -1,7 +1,9 @@
-import { Box, Card, Grid, Icon, styled, Divider } from '@mui/material';
+import { Box, Card, Grid,
+	//  Icon, 
+	 styled, Divider } from '@mui/material';
 import { H6 } from 'app/components/Typography';
 import { Link } from 'react-router-dom';
-import ProgressBar from 'app/pages/ProgressBar';
+// import ProgressBar from 'app/pages/ProgressBar';
 import ProgressBar2 from 'app/pages/ProgressBar2';
 import axios from 'app/api/axios';
 import { useEffect, useState } from 'react';
@@ -16,13 +18,13 @@ const StyledCard = styled(Card)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: { padding: '16px !important' },
 }));
 
-const ContentBox = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  flexWrap: 'wrap',
-  alignItems: 'center',
-  '& small': { color: theme.palette.text.secondary },
-  '& .icon': { opacity: 0.6, fontSize: '44px', color: theme.palette.primary.main },
-}));
+// const ContentBox = styled(Box)(({ theme }) => ({
+//   display: 'flex',
+//   flexWrap: 'wrap',
+//   alignItems: 'center',
+//   '& small': { color: theme.palette.text.secondary },
+//   '& .icon': { opacity: 0.6, fontSize: '44px', color: theme.palette.primary.main },
+// }));
 
 const Heading = styled('h6')(({ theme }) => ({
   margin: 0,
@@ -65,25 +67,25 @@ const AddSmartBinsCard = () => {
 			}
 		};
 		fetchRequisitionData();
-	}, []);
+	}, [requisitions]);
 
-	const renderAuthIcon = (created_date) => {
-		var check = true;
+	// const renderAuthIcon = (created_date) => {
+	// 	var check = true;
 
-		const days = Math.round((Date.parse(new Date()) - Date.parse(created_date)) / (1000 * 60 * 60 * 24));
+	// 	const days = Math.round((Date.parse(new Date()) - Date.parse(created_date)) / (1000 * 60 * 60 * 24));
 
-		if (days > 7) {
-			check = true;
-		} else {
-			check = false;
-		}
+	// 	if (days > 7) {
+	// 		check = true;
+	// 	} else {
+	// 		check = false;
+	// 	}
 
-		if (check) {
-			return <Icon className="icon" style={{ color: '#FF3D57' }}>new_releases</Icon>;
-		} else {
-			return <Icon className="icon" style={{ color: '#08ad6c' }}>offline_pin</Icon>;
-		}
-	}
+	// 	if (check) {
+	// 		return <Icon className="icon" style={{ color: '#FF3D57' }}>new_releases</Icon>;
+	// 	} else {
+	// 		return <Icon className="icon" style={{ color: '#08ad6c' }}>offline_pin</Icon>;
+	// 	}
+	// }
 
 	const renderColor = (fill) => {
 

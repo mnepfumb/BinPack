@@ -2,7 +2,7 @@ import { Box, Card, styled, Grid, Divider, useTheme } from '@mui/material';
 import { convertHexToRGB } from 'app/utils/utils';
 import { H3, H4 } from 'app/components/Typography';
 import LineChart from './LineChart';
-import SimpleCard from 'app/components/SimpleCard';
+// import SimpleCard from 'app/components/SimpleCard';
 
 const CardRoot = styled(Card)(({ theme }) => ({
   marginBottom: '24px',
@@ -10,14 +10,14 @@ const CardRoot = styled(Card)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: { paddingLeft: '16px !important' },
 }));
 
-const StyledCard = styled(Card)(({ theme }) => ({
-  boxShadow: 'none',
-  textAlign: 'center',
-  position: 'relative',
-  padding: '24px !important',
-  background: `rgb(${convertHexToRGB(theme.palette.primary.main)}, 0.15) !important`,
-  [theme.breakpoints.down('sm')]: { padding: '16px !important' },
-}));
+// const StyledCard = styled(Card)(({ theme }) => ({
+//   boxShadow: 'none',
+//   textAlign: 'center',
+//   position: 'relative',
+//   padding: '24px !important',
+//   background: `rgb(${convertHexToRGB(theme.palette.primary.main)}, 0.15) !important`,
+//   [theme.breakpoints.down('sm')]: { padding: '16px !important' },
+// }));
 
 const StyledCard2 = styled(Card)(({ theme }) => ({
 	boxShadow: 'none',

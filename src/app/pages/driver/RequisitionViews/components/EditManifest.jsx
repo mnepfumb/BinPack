@@ -78,8 +78,8 @@ const EditManifest = () => {
         manifest.state.manifest.time_out
     )
     const [manifeststatus, setManifeststatus] = React.useState(null);
-    const [treatmentstatus, setTreatmentstatus] = React.useState(null);
-    const [wasteType, setWasteType] = React.useState(null);
+    const [, setTreatmentstatus] = React.useState(null);
+    const [wasteType, ] = React.useState(null);
     const [wastestatus, setWastestatus] = React.useState(null);
 
     const handleManifeststatus = (_, newValue) => {
@@ -98,13 +98,13 @@ const EditManifest = () => {
         setTreatmentstatus(newValue);
     };
 
-    const handleWasteType = (_, newValue) => {
-        if (newValue && newValue.inputValue) {
-            setWasteType({ label: newValue.inputValue });
-            return;
-        }
-        setWasteType(newValue);
-    };
+    // const handleWasteType = (_, newValue) => {
+    //     if (newValue && newValue.inputValue) {
+    //         setWasteType({ label: newValue.inputValue });
+    //         return;
+    //     }
+    //     setWasteType(newValue);
+    // };
 
     const handleWastestatus = (_, newValue) => {
         if (newValue && newValue.inputValue) {
@@ -583,17 +583,17 @@ const waste_status = [
       { label: 'Waste Diverted' },
     //   { label: 'Waste Collected' },
 ];
-const treatment_status = [
-    { label: 'Awaiting Acceptance' },
-    { label: 'Assigned to Driver' },
-    { label: 'Waste Collected' },
-    { label: 'En Route to Sorting' },
-    { label: 'En Route to Landfill' },
-    { label: 'En Route to Scrapyard/Recycling Deport' },
-    { label: 'Sorting Facility' },
-    { label: 'Handed Over' },
-    { label: 'Waste Disposed' },
-];
+// const treatment_status = [
+//     { label: 'Awaiting Acceptance' },
+//     { label: 'Assigned to Driver' },
+//     { label: 'Waste Collected' },
+//     { label: 'En Route to Sorting' },
+//     { label: 'En Route to Landfill' },
+//     { label: 'En Route to Scrapyard/Recycling Deport' },
+//     { label: 'Sorting Facility' },
+//     { label: 'Handed Over' },
+//     { label: 'Waste Disposed' },
+// ];
 const waste_Type = [
     { label: 'Covid Waste' },
     { label: 'General Waste' },

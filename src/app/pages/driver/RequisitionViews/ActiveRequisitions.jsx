@@ -1,5 +1,5 @@
-import { styled,  Box, Icon, Button } from '@mui/material';
-import { Span, H1, H2, H3, H5, Small } from "app/components/Typography";
+import { styled,  Box, Button } from '@mui/material';
+import { Span } from "app/components/Typography";
 import { Fragment, useState, useEffect } from 'react';
 import axios from 'app/api/axios';
 import ActiveRequisitionCards from './components/ActiveRequisitionCards';
@@ -93,6 +93,7 @@ const Requisitions = () => {
               'Content-Type': 'application/json', 
           },
       })
+      console.log('res: ' + res);
     } catch (error) {
 				console.log('error: ' + error);
     }

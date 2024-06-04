@@ -48,18 +48,18 @@ const SubTitle = styled('span')(({ theme }) => ({
 
 const WasteTypesAnalytics = () => {
 
-	const [covidBarDataset, setCovidBarDataset] = useState([]);
-	const [generalBarDataset, setGeneralBarDataset] = useState([]);
-	const [hazardousBarDataset, setHazardousBarDataset] = useState([]);
-	const [metalBarDataset, setMetalBarDataset] = useState([]);
-	const [paperBarDataset, setPaperBarDataset] = useState([]);
-	const [plasticBarDataset, setPlasticBarDataset] = useState([]);
-	const [refuseBarDataset, setRefuseBarDataset] = useState([]);
-	const [healthcareBarDataset, setHealthcareBarDataset] = useState([]);
-	const [otherBarDataset, setOtherBarDataset] = useState([]);
-	const [dateBarDataset, setDateBarDataset] = useState([]);
-	const [pieDataset, setPieDataset] = useState([]);
-	const [tableDataset, setTableDataset] = useState([]);
+	const [,setCovidBarDataset] = useState([]);
+	const [,setGeneralBarDataset] = useState([]);
+	const [,setHazardousBarDataset] = useState([]);
+	const [, setMetalBarDataset] = useState([]);
+	const [, setPaperBarDataset] = useState([]);
+	const [, setPlasticBarDataset] = useState([]);
+	const [, setRefuseBarDataset] = useState([]);
+	const [, setHealthcareBarDataset] = useState([]);
+	const [, setOtherBarDataset] = useState([]);
+	const [, setDateBarDataset] = useState([]);
+	const [, setPieDataset] = useState([]);
+	const [, setTableDataset] = useState([]);
 	
 
 	useEffect(() => {
@@ -148,9 +148,9 @@ const WasteTypesAnalytics = () => {
 			}
 		};
 		// fetchRequisitionData();
-		// fetchBarData();
-		// fetchPieData();
-		// fetchTableData()
+		fetchBarData();
+		fetchPieData();
+		fetchTableData()
 	}, []);
 
 	const Purple = '#800080';
