@@ -51,6 +51,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "GENERATE_SOURCEMAP=false react-scripts --openssl-legacy-provider build",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
     "ghp": "react-scripts build && gh-pages -d build"
   },
