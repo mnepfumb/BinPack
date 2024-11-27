@@ -56,7 +56,7 @@ const JwtLogin = () => {
   const { login } = useAuth();
 
   const logIn = async (email, password) => {
-    const response = await axios.post('/auth', {
+    const response = await axios.post('/auth/signin', {
       email,
       password,
       headers: { 
