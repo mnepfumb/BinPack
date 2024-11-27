@@ -159,7 +159,11 @@ export const AuthProvider = ({ children }) => {
                     ////console.log("isValidToken-accessToken: " + accessToken);
 
                     const response = await axios.get('/auth/refresh',{
-                        headers: { 'Content-Type': 'application/json' },
+                        
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            // Authorization: `Bearer ${accessToken}` 
+                        },
                         crossDomain: true,
                         Authorization: `Bearer ${accessToken}`,
                         withCredentials: true

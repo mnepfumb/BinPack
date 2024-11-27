@@ -59,13 +59,10 @@ const JwtLogin = () => {
     const response = await axios.post('/auth/signin', {
       email,
       password,
-      crossDomain: true,
-      headers: { 
-        'Content-Type': 'application/json',
-        // Authorization: `Bearer ${accessToken}` 
-      },
-    })
-    // const { accessToken, user } = response.data
+    },
+      {headers: { 
+        'Content-Type': 'application/json'
+      }},)
     return response.data
   }
 
