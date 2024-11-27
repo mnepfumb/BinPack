@@ -14,8 +14,8 @@
     "static/js/11.d6129fbb.chunk.js": "/BinPack/static/js/11.d6129fbb.chunk.js",
     "static/js/12.a8a76b9b.chunk.js": "/BinPack/static/js/12.a8a76b9b.chunk.js",
     "static/js/13.fd3e74eb.chunk.js": "/BinPack/static/js/13.fd3e74eb.chunk.js",
-    "main.js": "/BinPack/static/js/main.66a7c044.chunk.js",
-    "runtime-main.js": "/BinPack/static/js/runtime-main.cc93adbe.js",
+    "main.js": "/BinPack/static/js/main.58e2d127.chunk.js",
+    "runtime-main.js": "/BinPack/static/js/runtime-main.5e7aab5f.js",
     "static/css/16.af774a2d.chunk.css": "/BinPack/static/css/16.af774a2d.chunk.css",
     "static/js/16.70276af6.chunk.js": "/BinPack/static/js/16.70276af6.chunk.js",
     "static/js/17.bbdb9dbf.chunk.js": "/BinPack/static/js/17.bbdb9dbf.chunk.js",
@@ -100,15 +100,15 @@
     "static/js/96.99b5d4c7.chunk.js": "/BinPack/static/js/96.99b5d4c7.chunk.js",
     "static/js/97.25264541.chunk.js": "/BinPack/static/js/97.25264541.chunk.js",
     "static/js/98.b9641593.chunk.js": "/BinPack/static/js/98.b9641593.chunk.js",
-    "static/js/99.901f6502.chunk.js": "/BinPack/static/js/99.901f6502.chunk.js",
+    "static/js/99.d4390c0a.chunk.js": "/BinPack/static/js/99.d4390c0a.chunk.js",
     "index.html": "/BinPack/index.html",
     "static/js/16.70276af6.chunk.js.LICENSE.txt": "/BinPack/static/js/16.70276af6.chunk.js.LICENSE.txt",
     "static/js/44.74c3af7b.chunk.js.LICENSE.txt": "/BinPack/static/js/44.74c3af7b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.cc93adbe.js",
+    "static/js/runtime-main.5e7aab5f.js",
     "static/css/16.af774a2d.chunk.css",
     "static/js/16.70276af6.chunk.js",
-    "static/js/main.66a7c044.chunk.js"
+    "static/js/main.58e2d127.chunk.js"
   ]
 }
