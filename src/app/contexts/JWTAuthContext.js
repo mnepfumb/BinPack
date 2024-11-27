@@ -160,11 +160,12 @@ export const AuthProvider = ({ children }) => {
 
                     const response = await axios.get('/auth/refresh',{
                         headers: { 'Content-Type': 'application/json' },
+                        crossDomain: true,
                         Authorization: `Bearer ${accessToken}`,
                         withCredentials: true
                     });
                     
-                    ////console.log("response: " + response.data);
+                    // ////console.log("response: " + response.data);
 
                     const { user } = response.data
                     ////console.log("/refresh: " + user);

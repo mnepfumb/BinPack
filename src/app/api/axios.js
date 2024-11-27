@@ -16,11 +16,13 @@ export default axios.create({
     
     baseURL: BASE_URL, 
     headers: { 'Content-Type': 'application/json' },
+    crossDomain: true,
 });
 
 export const axiosPrivate = axios.create({
     baseURL: BASE_URL, 
     headers: { 'Content-Type': 'application/json' },
+    crossDomain: true,
     withCredentials: true
 });
 
