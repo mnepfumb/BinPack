@@ -4,10 +4,10 @@ const { REACT_APP_API_BASE_URL } = process.env;
 console.log(REACT_APP_API_BASE_URL)
 
 // const BASE_URL = process.env.REACT_APP_API_BASE_URL;
-// const BASE_URL = 'http://localhost:3500';
+const BASE_URL = 'http://localhost:3500';
 // const BASE_URL = 'https://binpackdevapi-fma7ebfdhvhpghd0.southafricanorth-01.azurewebsites.net';
 // const BASE_URL = 'https://binpackapidev-fshva9cefwcwhegk.southafricanorth-01.azurewebsites.net';
-const BASE_URL = 'https://binpack-api.onrender.com';
+// const BASE_URL = 'https://binpack-api.onrender.com';
 // https://binpackapi.azurewebsites.net
 // console.log(BASE_URL)
 
